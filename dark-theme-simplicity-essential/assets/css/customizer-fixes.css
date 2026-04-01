@@ -1,0 +1,146 @@
+/**
+ * Dark Theme Simplicity - Customizer Fixes
+ * These styles fix issues with the customizer interface
+ */
+
+/* Fix for repeater items not being visible */
+.customizer-repeater-general-control-repeater-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.customizer-repeater-item-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background: #f7f7f7;
+    margin: -10px -10px 10px -10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.customizer-repeater-item-title {
+    font-weight: bold;
+}
+
+.customizer-repeater-item-content {
+    padding-top: 10px;
+}
+
+.customizer-repeater-field {
+    margin-bottom: 15px;
+}
+
+.customizer-repeater-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.customizer-repeater-field-input {
+    width: 100%;
+}
+
+.customizer-repeater-add-control-field {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: #0085ba;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.customizer-repeater-add-control-field:hover {
+    background: #0073aa;
+}
+
+.customizer-repeater-remove-item {
+    color: #a00;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.customizer-repeater-remove-item:hover {
+    color: #dc3232;
+}
+
+.customizer-repeater-toggle-item {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0073aa;
+    padding: 0;
+    margin-right: 5px;
+}
+
+/* Fix for approach items content */
+#customize-control-approach_items .customizer-repeater-item-content {
+    display: block !important;
+}
+
+/* Make sure expanded items show content */
+.customizer-repeater-general-control-repeater-item.expanded .customizer-repeater-item-content {
+    display: block !important;
+}
+
+/* Emergency fix for blank pages */
+.wp-customizer {
+    max-height: 100vh;
+    overflow: auto;
+}
+
+/* Improve visibility of inputs */
+.customize-control input[type="text"],
+.customize-control textarea,
+.customize-control select {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+}
+
+/* Add some clear spacing */
+.customize-control {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Make the add button more visible */
+.customizer-repeater-add-control-field {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Fix for content not showing in editor */
+.customize-control-dark-theme-repeater .customizer-repeater-general-control-repeater-item {
+    overflow: visible !important;
+}
+
+/* Fix approach items specifically */
+#sub-accordion-section-dt_approach_section .customizer-repeater-field {
+    display: block !important;
+    margin-bottom: 15px !important;
+}
+
+#sub-accordion-section-dt_approach_section .customizer-repeater-field-input {
+    display: block !important;
+    width: 100% !important;
+}
+
+.customizer-repeater-general-control-repeater {
+    margin-bottom: 10px;
+}
+
+/* Visual indicator that the item is clickable */
+.customizer-repeater-item-header:hover {
+    background-color: #f0f0f0;
+} 

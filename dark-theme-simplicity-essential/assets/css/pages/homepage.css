@@ -1,0 +1,199 @@
+/* Homepage Specific Styles */
+
+/* Loading States */
+.dts-loading .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.dts-loaded .animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Lazy Loading Animation */
+.dts-animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Hero Background Loading */
+.hero-bg {
+    transition: background-image 0.5s ease-in-out;
+}
+
+.hero-bg-loaded {
+    background-image: inherit !important;
+}
+
+/* Hero Button Styles */
+.hero-btn {
+    background-color: var(--primary-blue);
+    border-radius: 0;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    display: inline-flex;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: var(--primary-blue-hover);
+    color: white;
+}
+
+/* Section Label Styles */
+.section-label {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Animation Delays */
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+    animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+/* Unified Section Card Styles */
+.section-card {
+    background-color: var(--dark-card, #1e1e24);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    will-change: transform, border-color, box-shadow;
+}
+
+.section-card:hover {
+    border-color: var(--primary-blue);
+    border-width: 2px;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px var(--primary-blue-shadow, rgba(59, 130, 246, 0.2));
+}
+
+/* Service Card Specific */
+.section-card--service {
+    padding: 2rem;
+}
+
+.section-card--service .service-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+/* Benefits Card Specific */
+.section-card--benefit {
+    padding: 2rem;
+}
+
+/* Approach Card Specific */
+.section-card--approach {
+    padding: 2rem;
+    position: relative;
+}
+
+.section-card--approach .step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    opacity: 0.2;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* Homepage Section Typography */
+.homepage-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.homepage-section p {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    opacity: 0.8;
+}
+
+/* Social Menu Styles */
+.social-menu-item {
+    margin-bottom: 0.75rem;
+}
+
+.social-menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.social-menu-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+}
+
+.social-menu-item a:hover {
+    color: var(--primary-blue);
+}
+
+.social-menu-item svg {
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .homepage-section p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up {
+        animation: none;
+        opacity: 1;
+    }
+    
+    .section-card {
+        transition: none;
+    }
+}

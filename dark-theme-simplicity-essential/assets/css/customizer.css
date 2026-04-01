@@ -1,0 +1,427 @@
+/**
+ * Dark Theme Simplicity - Customizer Styles
+ * Matches the theme's dark aesthetic and blue accent colors
+ */
+
+/* WordPress Customizer Panel General Styling */
+.customize-control {
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.customize-control-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #23282d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.customize-control-description {
+    font-style: italic;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Input Styling to match theme colors */
+.customize-control input[type="text"],
+.customize-control input[type="email"],
+.customize-control input[type="url"],
+.customize-control input[type="number"],
+.customize-control textarea,
+.customize-control select {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-size: 13px;
+    color: #32373c;
+    background: #fff;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+}
+
+.customize-control input[type="text"]:focus,
+.customize-control input[type="email"]:focus,
+.customize-control input[type="url"]:focus,
+.customize-control input[type="number"]:focus,
+.customize-control textarea:focus,
+.customize-control select:focus {
+    border-color: #0085ff; /* Theme blue color */
+    box-shadow: 0 0 2px rgba(0,133,255,.8);
+    outline: none;
+}
+
+/* Textarea Specific */
+.customize-control textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Range Input Styling */
+.customize-control-range input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    background: transparent;
+    appearance: none;
+}
+
+.customize-control-range input[type="range"]::-webkit-slider-track {
+    background: #ddd;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.customize-control-range input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #0085ff; /* Theme blue */
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.customize-control-range input[type="range"]::-moz-range-track {
+    background: #ddd;
+    height: 4px;
+    border-radius: 2px;
+    border: none;
+}
+
+.customize-control-range input[type="range"]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #0085ff; /* Theme blue */
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Checkbox and Radio Styling */
+.customize-control-checkbox input[type="checkbox"],
+.customize-control-radio input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.customize-control-checkbox label,
+.customize-control-radio label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+/* Color Picker Styling */
+.wp-picker-container {
+    margin-top: 5px;
+}
+
+.wp-picker-container .wp-color-result {
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.wp-picker-container .wp-color-result:hover {
+    border-color: #0085ff; /* Theme blue */
+}
+
+/* Image Upload Controls */
+.customize-control-image .attachment-media-view {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.customize-control-image .placeholder {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.customize-control-image .inner {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.customize-control-image .thumbnail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+/* Upload and Remove Buttons */
+.customize-control .button,
+.customize-control .button-secondary {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.customize-control .button-primary {
+    background: #0085ff; /* Theme blue */
+    border-color: #0073aa #006799 #006799;
+    color: #fff;
+    text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+}
+
+.customize-control .button-primary:hover {
+    background: #0057a7; /* Theme blue hover */
+    border-color: #005a87;
+    color: #fff;
+}
+
+.customize-control .button-secondary {
+    color: #0073aa;
+    border-color: #0073aa;
+    background: #f7f7f7;
+}
+
+.customize-control .button-secondary:hover {
+    background: #fafafa;
+    border-color: #006799;
+    color: #006799;
+}
+
+/* Select Dropdown */
+.customize-control select {
+    height: 30px;
+    line-height: 30px;
+    padding: 2px 20px 2px 8px;
+    background: #fff url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") no-repeat right 8px center;
+    background-size: 8px 10px;
+    appearance: none;
+}
+
+/* Dark Theme Specific Customizer Section Headers */
+.customize-section-title {
+    border-bottom: 2px solid #0085ff; /* Theme blue */
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Specific styling for Front Page Sections panel */
+.customize-panel-title {
+    color: #0085ff; /* Theme blue for panel titles */
+    font-weight: 700;
+}
+
+/* Section descriptions */
+.customize-section-description {
+    padding: 10px 15px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Hero Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_hero_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Services Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_services_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Benefits Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_benefits_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Approach Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_approach_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* About Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_about_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Contact Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_contact_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Blog Hero Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_blog_hero_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Tools Section specific styling */
+#sub-accordion-section-dark_theme_simplicity_tools_section .customize-control-title {
+    color: #0085ff;
+    font-weight: 600;
+}
+
+/* Color control specific styling to match theme */
+.customize-control-color .wp-color-result {
+    border: 1px solid #ddd;
+}
+
+.customize-control-color .wp-color-result:hover {
+    border-color: #0085ff;
+}
+
+/* Number inputs with specific styling */
+.customize-control input[type="number"] {
+    padding-right: 4px;
+}
+
+/* Toggle Controls */
+.customize-control-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customize-control-toggle .customize-control-title {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.customize-control-toggle input[type="checkbox"] {
+    margin: 0;
+}
+
+/* Validation Errors */
+.customize-control.has-error input,
+.customize-control.has-error textarea,
+.customize-control.has-error select {
+    border-color: #dc3232;
+    box-shadow: 0 0 2px rgba(204,14,37,.8);
+}
+
+.customize-control-notifications-container {
+    margin-top: 8px;
+}
+
+.customize-control-notification {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-left: 4px solid #dc3232;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.customize-control-notification.notice-error {
+    border-left-color: #dc3232;
+}
+
+.customize-control-notification.notice-warning {
+    border-left-color: #ffb900;
+}
+
+.customize-control-notification.notice-info {
+    border-left-color: #0085ff; /* Theme blue */
+}
+
+/* Responsive Design for Customizer */
+@media screen and (max-width: 640px) {
+    .customize-control {
+        margin-bottom: 20px;
+    }
+    
+    .customize-control-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .customize-control input,
+    .customize-control textarea,
+    .customize-control select {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+
+/* Accordion sections styling */
+.accordion-section-title {
+    background: #fff;
+    color: #444;
+    border-left: 4px solid #fff;
+    position: relative;
+}
+
+.accordion-section-title:hover,
+.accordion-section-title:focus {
+    color: #0073aa;
+    background: #f5f5f5;
+    border-left-color: #0085ff; /* Theme blue */
+}
+
+/* Accessibility Improvements */
+.customize-control:focus-within {
+    outline: 2px solid #0085ff; /* Theme blue */
+    outline-offset: 2px;
+}
+
+.customize-control-title:empty {
+    display: none;
+}
+
+.customize-control-description:empty {
+    display: none;
+}
+
+/* Loading States */
+.customize-control.loading::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.7);
+    z-index: 10;
+}
+
+.customize-control.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+/* Help Text */
+.customize-help-toggle {
+    color: #0085ff; /* Theme blue */
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.customize-help-toggle:hover {
+    color: #0057a7; /* Theme blue hover */
+}

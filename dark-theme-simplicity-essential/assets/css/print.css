@@ -1,0 +1,180 @@
+/**
+ * Print Styles - Dark Theme Simplicity
+ * Optimized styles for printing
+ * Version: 1.0.0
+ */
+
+/* Reset colors for print */
+* {
+  background: white !important;
+  color: black !important;
+  box-shadow: none !important;
+}
+
+/* Typography for print */
+body {
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
+/* Single post specific print styles */
+.single .entry-content {
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #000000;
+}
+
+.single .entry-content h1,
+.single .entry-content h2,
+.single .entry-content h3,
+.single .entry-content h4 {
+  color: #000000;
+  page-break-after: avoid;
+  border: none;
+}
+
+/* Hide non-essential elements */
+.mobile-menu-toggle,
+.mobile-menu,
+.desktop-nav,
+.sidebar-container,
+.pagination,
+.btn,
+.dropdown,
+.modal,
+.tooltip,
+.post-navigation,
+.related-posts,
+.comments-area,
+.site-header,
+.site-footer,
+.share-buttons-desktop,
+.share-buttons-mobile,
+.toc-container,
+.mobile-toc-container,
+#share-btn,
+#share-dropdown,
+.dts-copy-feedback,
+.skip-link,
+.screen-reader-text,
+.admin-notice,
+.widget-area,
+.search-form,
+.nav-links {
+  display: none !important;
+}
+
+/* Optimize images for print */
+img {
+  max-width: 100% !important;
+  page-break-inside: avoid;
+}
+
+.single .entry-content img {
+  max-width: 100%;
+  page-break-inside: avoid;
+}
+
+/* Optimize tables for print */
+.table-wrapper {
+  overflow: visible;
+}
+
+.table {
+  font-size: 10pt;
+}
+
+/* Print URLs for links in content area only */
+.entry-content a[href]:after {
+  content: " (" attr(href) ")";
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+/* But don't print URLs for internal navigation links */
+.entry-content a[href^="#"]:after,
+.entry-content a[href^="javascript:"]:after {
+  content: "";
+}
+
+/* Ensure content uses full width when printing */
+.site-main,
+.container,
+.content-container,
+.entry-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove backgrounds and borders */
+article,
+.post-container {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Optimize code blocks for print */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  page-break-inside: avoid;
+}
+
+code {
+  background: #f5f5f5 !important;
+  color: #333 !important;
+  padding: 2px 4px;
+}
+
+/* Optimize blockquotes for print */
+blockquote {
+  border-left: 3px solid #333;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+/* Page breaks */
+.page-break {
+  page-break-before: always;
+}
+
+/* Avoid breaking inside certain elements */
+p, li, blockquote {
+  page-break-inside: avoid;
+}
+
+/* Keep headings with their content */
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid;
+}
+
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
+  page-break-before: avoid;
+}
+
+/* Print-friendly margins */
+@page {
+  margin: 1in;
+}
+
+/* Add print title if needed */
+.print-only {
+  display: block !important;
+}
+
+/* Hide print-only elements on screen */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}

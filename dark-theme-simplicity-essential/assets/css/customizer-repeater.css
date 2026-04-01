@@ -1,0 +1,450 @@
+/**
+ * Dark Theme Simplicity Customizer Repeater CSS
+ */
+
+/* Control Container */
+.customizer-repeater-control {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+/* Items Container */
+.customizer-repeater-items {
+    margin-bottom: 10px;
+}
+
+/* Individual Item */
+.customizer-repeater-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.customizer-repeater-item.expanded {
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+
+/* Item Header */
+.customizer-repeater-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+    cursor: move;
+    user-select: none;
+}
+
+.customizer-repeater-item.expanded .customizer-repeater-item-header {
+    background: #f0f0f0;
+    border-bottom-color: #ccc;
+}
+
+.customizer-repeater-item-header .title {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+
+.customizer-repeater-item-header .item-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Item Content */
+.customizer-repeater-item-content {
+    padding: 12px 15px;
+    display: none;
+    background: #fdfdfd;
+}
+
+/* Field Styling */
+.customizer-repeater-field {
+    margin-bottom: 15px;
+}
+
+.customizer-repeater-field:last-child {
+    margin-bottom: 5px;
+}
+
+.customizer-repeater-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #23282d;
+}
+
+.customizer-repeater-field input,
+.customizer-repeater-field textarea,
+.customizer-repeater-field select {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 7px 10px;
+    color: #32373c;
+}
+
+.customizer-repeater-field textarea {
+    min-height: 65px;
+    resize: vertical;
+}
+
+/* Add Button */
+.customize-add-repeater-item {
+    width: 100%;
+    text-align: center;
+    display: block;
+    background: #0085ba;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.customize-add-repeater-item:hover {
+    background: #008ec2;
+}
+
+/* Remove Button */
+.customizer-repeater-remove {
+    color: #a00;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.customizer-repeater-remove:hover {
+    color: #dc3232;
+}
+
+.customizer-repeater-remove .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    vertical-align: text-bottom;
+}
+
+/* Toggle Button */
+.customizer-repeater-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 5px;
+    color: #0073aa;
+    height: 20px;
+    width: 20px;
+    line-height: 1;
+}
+
+.customizer-repeater-toggle:hover {
+    color: #00a0d2;
+}
+
+.customizer-repeater-toggle .toggle-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+}
+
+.customizer-repeater-toggle .toggle-indicator:before {
+    content: "\f140";
+    display: inline-block;
+    font: normal 20px/1 dashicons;
+    vertical-align: middle;
+}
+
+.customizer-repeater-item.expanded .customizer-repeater-toggle .toggle-indicator:before {
+    content: "\f142";
+}
+
+/* Sortable Placeholder */
+.customizer-repeater-items .ui-sortable-placeholder {
+    border: 1px dashed #ccc;
+    background: #f7f7f7;
+    margin-bottom: 10px;
+    visibility: visible !important;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+/* When dragging */
+.customizer-repeater-items .ui-sortable-helper {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+/* Clear floats */
+.customizer-repeater-control::after,
+.customizer-repeater-items::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Icon styles */
+.customizer-repeater-field-icon-preview {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.repeater-control {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+.repeater-field-control {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.repeater-field-title {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e5e5e5;
+    font-weight: 600;
+    color: #23282d;
+    cursor: pointer;
+    background: #f7f7f7;
+    margin: 0;
+    position: relative;
+}
+
+.repeater-field-title:after {
+    content: "\f140";
+    font: normal 20px/1 dashicons;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.repeater-field-title.collapsed:after {
+    content: "\f142";
+}
+
+.repeater-field-content {
+    padding: 15px;
+    border-top: none;
+}
+
+.repeater-row {
+    margin-bottom: 15px;
+}
+
+.repeater-row:last-child {
+    margin-bottom: 0;
+}
+
+.repeater-row label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #23282d;
+}
+
+.repeater-row input[type="text"],
+.repeater-row textarea,
+.repeater-row select {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px 8px;
+}
+
+.repeater-row textarea {
+    min-height: 65px;
+    resize: vertical;
+}
+
+.repeater-field-remove {
+    color: #a00;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 13px;
+    text-align: right;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.repeater-field-remove:hover {
+    color: #dc3232;
+    text-decoration: underline;
+}
+
+.add-new-repeater-field {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    background: #0085ba;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.add-new-repeater-field:hover {
+    background: #008ec2;
+}
+
+/* Clear float */
+.repeater-control:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/**
+ * Customizer Repeater Control CSS
+ */
+
+/* Main repeater container */
+.customizer-repeater-control-wrap {
+    margin-bottom: 20px;
+}
+
+/* Individual repeater items */
+.customizer-repeater-general-control-repeater-item {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: visible !important;
+}
+
+/* Item header */
+.customizer-repeater-item-header {
+    padding: 10px 15px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Item title */
+.customizer-repeater-item-title {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Item controls */
+.customizer-repeater-item-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Toggle and remove buttons */
+.customizer-repeater-toggle-item,
+.customizer-repeater-remove-item {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    color: #0073aa;
+}
+
+.customizer-repeater-remove-item {
+    color: #a00;
+}
+
+/* Item content */
+.customizer-repeater-item-content {
+    padding: 15px;
+}
+
+/* Field styling */
+.customizer-repeater-field {
+    margin-bottom: 15px;
+}
+
+.customizer-repeater-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.customizer-repeater-field-input {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Add button */
+.customizer-repeater-add-control-field {
+    width: 100%;
+    padding: 10px;
+    background: #0085ba;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.customizer-repeater-add-control-field:hover {
+    background: #006799;
+}
+
+/* Show expanded items */
+.customizer-repeater-general-control-repeater-item.expanded .customizer-repeater-item-content {
+    display: block !important;
+}
+
+/* Critical fix for hidden fields */
+#sub-accordion-section-dt_approach_section .customizer-repeater-item-content {
+    display: block !important;
+}
+
+/* Make fields more visible in the customizer */
+#sub-accordion-section-dt_approach_section .customizer-repeater-field {
+    display: block !important;
+    margin-bottom: 15px !important;
+}
+
+#sub-accordion-section-dt_approach_section .customizer-repeater-field-input {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Add additional visibility to the expanded state */
+.customizer-repeater-general-control-repeater-item.expanded {
+    border: 2px solid #0085ba;
+} 

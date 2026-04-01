@@ -1,0 +1,696 @@
+/**
+ * Single Post CSS - Dark Theme Simplicity
+ * Blog post specific styles
+ * Version: 1.0.0
+ */
+
+/* ============================================
+   SINGLE POST LAYOUT
+   ============================================ */
+
+.single .site-main {
+  padding-top: 0;
+  padding-bottom: var(--spacing-2xl);
+}
+
+/* Content Layout for Posts */
+.single .content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Enhanced typography for blog posts */
+.single .entry-content {
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* Enhanced link styling for blog posts */
+.single .entry-content a:not(.btn):not(.wp-block-button__link) {
+  color: var(--accent-blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-blue-muted);
+  transition: all var(--transition-base);
+}
+
+.single .entry-content a:not(.btn):not(.wp-block-button__link):hover {
+  color: var(--accent-blue-hover);
+  border-bottom-color: var(--accent-blue);
+}
+
+/* Post headings with better spacing */
+.single .entry-content h2 {
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--accent-blue-muted);
+  font-size: 1.875rem;
+}
+
+.single .entry-content h3 {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+}
+
+.single .entry-content h4 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+}
+
+/* ============================================
+   POST HERO SECTION
+   ============================================ */
+
+/* Hero content centering */
+.hero-container {
+  position: relative;
+}
+
+.page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure content is centered and has proper width */
+.hero-container .text-center {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-hero {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-300);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl);
+}
+
+.post-hero--featured {
+  min-height: auto;
+}
+
+/* Hero background image */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(26, 26, 28, 0.8) 0%,
+    rgba(26, 26, 28, 0.6) 50%,
+    rgba(26, 26, 28, 0.8) 100%
+  );
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.hero-meta {
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-excerpt {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   POST CONTENT ENHANCEMENTS
+   ============================================ */
+
+/* Better paragraph spacing */
+.single .entry-content p {
+  margin-bottom: var(--spacing-lg);
+  max-width: 65ch;
+  line-height: 1.7;
+}
+
+.single .entry-content p + p {
+  margin-top: var(--spacing-md);
+}
+
+/* Enhanced list styling */
+.single .entry-content ul,
+.single .entry-content ol {
+  margin: var(--spacing-lg) 0;
+  padding-left: var(--spacing-xl);
+}
+
+/* Override Tailwind CSS reset for content lists */
+.single .entry-content ul {
+  list-style: disc outside;
+  list-style-position: outside;
+}
+
+.single .entry-content ol {
+  list-style: decimal outside;
+  list-style-position: outside;
+}
+
+.single .entry-content li {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.7;
+  display: list-item;
+}
+
+.single .entry-content ul li::marker {
+  color: var(--accent-blue) !important;
+}
+
+.single .entry-content ol li::marker {
+  color: var(--accent-blue) !important;
+  font-weight: 600;
+}
+
+/* Force list styles for WordPress block lists */
+.single .entry-content .wp-block-list,
+.single .entry-content .wp-block-list li {
+  list-style: inherit !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.single .entry-content .wp-block-list {
+  padding-left: var(--spacing-xl) !important;
+}
+
+.single .entry-content .wp-block-list li::marker {
+  color: var(--accent-blue) !important;
+}
+
+/* Enhanced blockquotes */
+.single .entry-content blockquote {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-left: 4px solid var(--accent-blue);
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: var(--radius-md);
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.single .entry-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: var(--spacing-lg);
+  font-size: 3rem;
+  color: var(--accent-blue);
+  line-height: 1;
+}
+
+/* ============================================
+   MEDIA EMBEDS
+   ============================================ */
+
+.single .entry-content .responsive-video-wrapper {
+  margin: var(--spacing-xl) auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  max-width: 100%;
+}
+
+.single .entry-content img {
+  margin: var(--spacing-xl) auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  height: auto;
+}
+
+.single .entry-content figure {
+  margin: var(--spacing-xl) 0;
+}
+
+.single .entry-content figcaption {
+  margin-top: var(--spacing-md);
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   POST NAVIGATION
+   ============================================ */
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--spacing-2xl) 0;
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-previous,
+.nav-next {
+  flex: 1;
+  max-width: 45%;
+}
+
+.nav-next {
+  text-align: right;
+}
+
+.post-nav-link {
+  display: block;
+  padding: var(--spacing-md);
+  background-color: var(--dark-300);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.post-nav-link:hover {
+  background-color: var(--dark-400);
+  transform: translateY(-2px);
+}
+
+.nav-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.nav-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ============================================
+   RELATED POSTS
+   ============================================ */
+
+.related-posts {
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.related-posts-title {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.875rem;
+  color: var(--text-secondary);
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.related-post-card {
+  background-color: var(--dark-300);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.related-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Group hover for image zoom on card hover */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.related-post-image {
+  aspect-ratio: 16/9;
+  background: linear-gradient(45deg, var(--accent-blue-muted), var(--dark-400));
+  position: relative;
+  overflow: hidden;
+}
+
+.related-post-content {
+  padding: var(--spacing-lg);
+}
+
+.related-post-meta {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.related-post-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.4;
+}
+
+.related-post-excerpt {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================
+   COMMENTS SECTION
+   ============================================ */
+
+.comments-area {
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.comments-title {
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--dark-300);
+  border-radius: var(--radius-md);
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.comment-content {
+  line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .single .content-layout {
+    flex-direction: row;
+    gap: var(--spacing-2xl);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-content {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+  
+  .related-posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .single .entry-content {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .single .entry-content {
+    font-size: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+  
+  .related-posts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Content with sidebar */
+  .content-layout--sidebar .entry-content {
+    max-width: none;
+  }
+  
+  /* No sidebar layout */
+  .no-sidebar .entry-content {
+    max-width: var(--content-wide);
+    margin: 0 auto;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  .no-sidebar .entry-content {
+    max-width: var(--content-full);
+  }
+  
+  .hero-content {
+    max-width: var(--content-full);
+  }
+}
+
+/* ============================================
+   HERO BACKGROUND IMAGE
+   ============================================ */
+
+/* Hero background image styling */
+.hero-bg-image {
+  display: block;
+}
+
+.hero-bg-image img {
+  object-position: center;
+}
+
+/* Hero heights — let content determine height, no forced min-height */
+.page-header.has-featured-image > div {
+  min-height: auto;
+}
+
+@media (min-width: 768px) {
+  .page-header.has-featured-image > div {
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-header.has-featured-image > div {
+    min-height: auto;
+  }
+}
+
+/* Text styling over image */
+.page-header.has-featured-image h1,
+.page-header.has-featured-image .text-white {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   SIDEBAR RESPONSIVE
+   ============================================ */
+
+/* Hide sidebar on mobile by default */
+.post-sidebar {
+  display: none;
+}
+
+/* Force hide drawer elements if they still exist */
+.drawer-toggle,
+.drawer-toggle-icon,
+.drawer-toggle-text {
+  display: none !important;
+}
+
+/* Show sidebar on desktop when layout supports it */
+@media (min-width: 1024px) {
+  .post-sidebar {
+    display: block !important;
+  }
+  
+  /* Ensure drawer elements stay hidden on desktop too */
+  .drawer-toggle {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   WIDGET OVERFLOW FIXES
+   ============================================ */
+
+/* Ensure widget content doesn't overflow */
+.widget-area {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.widget-area .widget {
+  overflow: hidden;
+}
+
+.widget-area .widget-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.widget-area ul {
+  padding-left: 1.5rem;
+}
+
+.widget-area li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  list-style-position: outside;
+}
+
+/* Table of contents specific fixes */
+.table-of-contents ul {
+  padding-left: 1.25rem;
+}
+
+.table-of-contents li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* ============================================
+   SCROLL-TRIGGERED CTA (JoshWComeau pattern)
+   ============================================ */
+
+.scroll-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 50;
+  max-width: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scroll-cta.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.scroll-cta-inner {
+  background-color: var(--dark-300);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-cta-text {
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.scroll-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.scroll-cta-yes {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  background-color: rgba(59, 130, 246, 0.9);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.scroll-cta-yes:hover {
+  background-color: rgba(59, 130, 246, 1);
+}
+
+.scroll-cta-no {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  padding: 0.375rem 0;
+  transition: color 0.2s;
+}
+
+.scroll-cta-no:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hide on mobile — mobile CTA already covers this */
+@media (max-width: 767px) {
+  .scroll-cta {
+    display: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */

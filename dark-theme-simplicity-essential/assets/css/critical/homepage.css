@@ -1,0 +1,39 @@
+/* Critical CSS for Homepage - Above-the-fold only (Optimized) */
+
+/* Essential reset for above-fold elements */
+*,::after,::before{box-sizing:border-box}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{margin:0;padding:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.6;color:rgba(255,255,255,.9);background-color:rgb(26,26,28);min-height:100vh;padding-top:4rem}
+
+/* Header Skeleton (above-fold) */
+.site-header{position:fixed;top:0;left:0;width:100%;height:4rem;background-color:rgba(18,18,20,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1);z-index:100}
+
+/* Hero Section Skeleton (above-fold) */
+.hero-section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:rgb(26,26,28)}
+h1{font-size:2.25rem;font-weight:600;line-height:1.3;color:rgba(255,255,255,.95);margin:0 0 1.5rem;text-align:center}
+
+/* Essential utilities for hero layout */
+.absolute{position:absolute}
+.relative{position:relative}
+.inset-0{top:0;right:0;bottom:0;left:0}
+.z-10{z-index:10}
+.flex{display:flex}
+.items-center{align-items:center}
+.justify-center{justify-content:center}
+.text-center{text-align:center}
+.w-full{width:100%}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* Background overlay for hero */
+.bg-gradient-to-b{background-image:linear-gradient(to bottom,rgba(18,18,20,.8),rgba(18,18,20,.7),#121214)}
+
+/* Responsive hero text */
+@media (min-width:768px){
+  h1{font-size:3rem}
+}
+
+/* Hero background image - responsive sizes */
+.hero-bg{background-image:url('https://braddaiber.com/wp-content/uploads/2024/03/shutterstock_134653565-1-768x512.webp')}
+@media (min-width:768px){.hero-bg{background-image:url('https://braddaiber.com/wp-content/uploads/2024/03/shutterstock_134653565-1-1024x683.webp')}}
+@media (min-width:1024px){.hero-bg{background-image:url('https://braddaiber.com/wp-content/uploads/2024/03/shutterstock_134653565-1-1536x1024.webp')}}
+@media (min-width:1536px){.hero-bg{background-image:url('https://braddaiber.com/wp-content/uploads/2024/03/shutterstock_134653565-1-scaled.webp')}}
