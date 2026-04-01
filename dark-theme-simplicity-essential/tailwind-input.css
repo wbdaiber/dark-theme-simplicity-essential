@@ -1,0 +1,116 @@
+/* Tailwind CSS v4 input — generates style.css utilities */
+
+/* Scan PHP templates and JS files for class usage */
+@source "./*.php";
+@source "./template-parts/**/*.php";
+@source "./page-templates/*.php";
+@source "./inc/*.php";
+@source "./assets/js/**/*.js";
+
+/* Import only theme + utilities (skip preflight — we have reset.css) */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+/* ========== Strip unused default theme colors ========== */
+/* Keep: black, white, gray (used in templates/JS). Remove all others. */
+@theme {
+  --color-red-*: initial;
+  --color-orange-*: initial;
+  --color-amber-*: initial;
+  --color-yellow-*: initial;
+  --color-lime-*: initial;
+  --color-green-*: initial;
+  --color-emerald-*: initial;
+  --color-teal-*: initial;
+  --color-cyan-*: initial;
+  --color-sky-*: initial;
+  --color-blue-*: initial;
+  --color-indigo-*: initial;
+  --color-violet-*: initial;
+  --color-purple-*: initial;
+  --color-fuchsia-*: initial;
+  --color-pink-*: initial;
+  --color-rose-*: initial;
+  --color-slate-*: initial;
+  --color-zinc-*: initial;
+  --color-neutral-*: initial;
+  --color-stone-*: initial;
+  --color-mauve-*: initial;
+  --color-mist-*: initial;
+  --color-olive-*: initial;
+  --color-taupe-*: initial;
+
+  /* Custom colors matching the dark theme design system */
+  --color-dark-100: #1a1a1c;
+  --color-dark-200: #121214;
+  --color-dark-300: #0c0c0e;
+  --color-dark-400: #373951;
+
+  --color-light-100: #ffffff;
+
+  --color-blue-300: #0085ff;
+  --color-blue-400: #0057a7;
+  --color-blue-500: #003d75;
+
+  /* Breakpoints (matching theme design system) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ========== Custom utilities using CSS variables from tokens.css ========== */
+@utility bg-dark-300 {
+  background-color: var(--dark-300);
+}
+
+@utility bg-dark-400 {
+  background-color: var(--dark-400);
+}
+
+@utility border {
+  border: 1px solid var(--border-color);
+}
+
+@utility border-t {
+  border-top: 1px solid var(--border-color);
+}
+
+@utility border-b {
+  border-bottom: 1px solid var(--border-color);
+}
+
+@utility rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+@utility rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+@utility rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+@utility shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+@utility shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+@utility shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+@utility transition-all {
+  transition: all var(--transition-base);
+}
+
+@utility transition-colors {
+  transition: color var(--transition-base),
+              background-color var(--transition-base),
+              border-color var(--transition-base);
+}

@@ -16,47 +16,43 @@ require_once get_template_directory() . '/inc/critical-css.php';
 * Enqueue scripts and styles - REFACTORED VERSION WITH CRITICAL CSS
 */
 function dark_theme_simplicity_scripts() {
-   // Check if critical CSS file exists for this page type
-   $critical_css_file = dts_get_critical_css_file();
-   $has_critical_css = !empty($critical_css_file);
-   
-   if ($has_critical_css) {
-       // CRITICAL CSS MODE: Load styles asynchronously via preload hints
-       // The actual CSS loading is handled by dts_add_css_preload_hints() in critical-css.php
-       
-       // Only enqueue print styles normally (they don't block rendering)
-       wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), '1.0.0', 'print');
-       
-   } else {
-       // FALLBACK MODE: Normal CSS loading for when critical CSS is not available
-       
-       // Base CSS (merged core, layout, components)
-       wp_enqueue_style('dts-base', get_template_directory_uri() . '/assets/css/base.css', array(), '2.0.0');
-       wp_enqueue_style('dts-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array('dts-base'), '2.0.3');
-       
-       // Keep header styles separate (well organized)
-       wp_enqueue_style('dts-header', get_template_directory_uri() . '/assets/css/header.css', array('dts-base'), '2.0.0');
-       wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), '1.0.0');
-       
-       // Main theme stylesheet (REQUIRED - contains WordPress theme header)
-       wp_enqueue_style('dark-theme-simplicity-style', get_stylesheet_uri(), array('dts-responsive'), '2.0.0');
-       
-       // Print styles (loaded with media='print' to prevent blocking)
-       wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), '1.0.0', 'print');
-      
-       // Page-specific styles
-       if (is_front_page()) {
-           wp_enqueue_style('dts-homepage', get_template_directory_uri() . '/assets/css/pages/homepage.css', array('dts-base'), '2.0.0');
-           wp_enqueue_style('dts-hero-cta', get_template_directory_uri() . '/assets/css/hero-cta.css', array('dts-homepage'), '1.0.0');
-       }
-       
-       if (is_single()) {
-           wp_enqueue_style('dts-single-post', get_template_directory_uri() . '/assets/css/pages/single-post.css', array('dark-theme-simplicity-style'), '2.0.2');
-       }
-       
-       if (is_home() || is_archive() || is_search()) {
-           wp_enqueue_style('dts-archive', get_template_directory_uri() . '/assets/css/pages/archive.css', array('dts-base'), '2.0.0');
-       }
+   $theme_ver = wp_get_theme()->get('Version');
+
+   // === CSS FILES (render-blocking, deterministic load order) ===
+   // Inline critical CSS handles first paint; these load the full styles.
+
+   // 1. Design tokens (CSS custom properties)
+   wp_enqueue_style('dts-tokens', get_template_directory_uri() . '/assets/css/tokens.css', array(), $theme_ver);
+
+   // 2. Element resets and base typography
+   wp_enqueue_style('dts-reset', get_template_directory_uri() . '/assets/css/reset.css', array('dts-tokens'), $theme_ver);
+
+   // 3. Main theme stylesheet — Tailwind v4 utilities (REQUIRED by WordPress)
+   wp_enqueue_style('dark-theme-simplicity-style', get_stylesheet_uri(), array('dts-reset'), $theme_ver);
+
+   // 4. Reusable UI components (includes layout containers)
+   wp_enqueue_style('dts-components', get_template_directory_uri() . '/assets/css/components.css', array('dark-theme-simplicity-style'), $theme_ver);
+
+   // 5. Header styles
+   wp_enqueue_style('dts-header', get_template_directory_uri() . '/assets/css/header.css', array('dts-components'), $theme_ver);
+
+   // 6. Conversion CTAs
+   wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), '1.0.0');
+
+   // Print styles
+   wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), '1.0.0', 'print');
+
+   // Page-specific styles (depend on components)
+   if (is_front_page()) {
+       wp_enqueue_style('dts-homepage', get_template_directory_uri() . '/assets/css/pages/homepage.css', array('dts-components'), $theme_ver);
+   }
+
+   if (is_single()) {
+       wp_enqueue_style('dts-single-post', get_template_directory_uri() . '/assets/css/pages/single-post.css', array('dts-components'), $theme_ver);
+   }
+
+   if (is_home() || is_archive() || is_search()) {
+       wp_enqueue_style('dts-archive', get_template_directory_uri() . '/assets/css/pages/archive.css', array('dts-components'), $theme_ver);
    }
 
    // === JAVASCRIPT FILES (NEW MODULAR STRUCTURE) ===

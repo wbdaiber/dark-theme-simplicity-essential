@@ -217,10 +217,7 @@
 	background: rgba(96, 165, 250, 0.8);
 }
 
-/* Body Padding for Fixed Header */
-body {
-	padding-top: 4rem;
-}
+/* Body padding-top is now in reset.css (single source of truth) */
 
 /* ==========================================================================
    Media Queries

@@ -43,7 +43,9 @@ Nearly all frontend content (hero text, service cards, benefits, approach steps,
 
 ### Critical CSS System
 
-`inc/critical-css.php` inlines above-the-fold CSS from `assets/css/critical/` (homepage, single-post, archive) and async-loads remaining stylesheets. Page type detection in `dts_get_critical_css_file()` selects the correct critical file.
+`inc/critical-css.php` inlines above-the-fold CSS from `assets/css/critical/` (homepage, single-post, archive) and async-loads remaining stylesheets via `<link rel="preload" onload="this.rel='stylesheet'">`. Page type detection in `dts_get_critical_css_file()` selects the correct critical file.
+
+**Important:** Because async-preloaded stylesheets apply in download-completion order (not HTML order), any above-fold styles that could conflict with Tailwind's preflight resets MUST be included in the critical CSS files, not just in async-loaded page CSS. See `~/.claude/plans/css-architecture-to-grade-a.md` for the plan to simplify this.
 
 ### JavaScript Loading Order
 
@@ -53,13 +55,54 @@ Scripts are vanilla JS loaded in dependency chain via `inc/enqueue.php`:
 3. `header.js` → `navigation.js` → `content.js` → `consolidated-theme.js`
 4. Page-specific: `blog-consolidated.js` (single posts), `customizer.js` (customizer preview)
 
-### CSS Organization
+### CSS Architecture (Grade A — April 2025)
 
-Pre-compiled Tailwind CSS with no build step. Color palette uses custom dark tokens (`dark-200`, `dark-300`) with blue accents (`blue-300`–`blue-500`):
-- `assets/css/base.css` — Core styles (resets, typography, components)
-- `assets/css/pages/` — Page-specific styles (homepage, single-post, archive)
-- `assets/css/critical/` — Inlined critical CSS per page type
-- `assets/css/header.css`, `responsive.css` — Layout modules
+CSS uses a layered architecture with clear file ownership. Each CSS property is defined in exactly ONE file. Load order (render-blocking, deterministic via `inc/enqueue.php`):
+
+```
+tokens.css → reset.css → style.css (Tailwind v4) → components.css → header.css → page-specific
+```
+
+Inline critical CSS (`<style id="critical-css">`) is injected in `<head>` before stylesheets for first paint. CSS loads render-blocking (no async preload pattern) — total CSS is ~40KB, well within modern performance budgets.
+
+#### Core CSS files
+| File | Owns |
+|------|------|
+| `assets/css/tokens.css` | ALL `:root` CSS custom properties — design system variables (colors, spacing, typography, shadows, z-index) |
+| `assets/css/reset.css` | Element-level resets, body styles (SINGLE source for `body { padding-top: 4rem }`), base typography (h1-h6, p, a, lists), responsive typography scaling (md/lg breakpoints), accessibility (.screen-reader-text, .skip-link, :focus-visible), prefers-reduced-motion/prefers-contrast |
+| `style.css` | Auto-generated Tailwind v4 utilities (no preflight). Regenerate: `./tailwindcss -i tailwind-input.css -o style-new.css` then prepend the WP theme header comment. Config: `tailwind-input.css`. Scans PHP templates + JS files for used classes. |
+| `assets/css/components.css` | Layout containers (.container, .content-container, .section + responsive scaling), reusable UI components with co-located responsive variants: .site/.site-main, .entry-content, .content-layout (sidebar grid), .page-header, .hero-container, .sidebar-container, .card/.glass-card, .btn variants, .form-*, .table, .nav-link, .breadcrumbs, .badge, .alert, .widget, interactive feedback (.dts-copy-feedback, .toc-link.active), focus/accessibility enhancements |
+| `assets/css/header.css` | .site-header, .site-logo, .site-title, .desktop-nav, .nav-menu, .mobile-menu*, .hamburger-*, navigation breakpoints |
+| `assets/css/conversion-cta.css` | Nav CTA button, sidebar CTA card, mobile CTA |
+
+#### Page-specific CSS (loaded conditionally)
+| File | Owns |
+|------|------|
+| `assets/css/pages/homepage.css` | Homepage sections, animations, section cards, hero CTA buttons (.hero-headline, .hero-cta-primary/secondary), logo bar (.logo-bar-section, .logo-bar-logo with brightness(0) invert(1) filter) |
+| `assets/css/pages/single-post.css` | Post typography overrides, hero section, related posts, scroll CTA, sidebar responsive, widget overflow, comments |
+| `assets/css/pages/archive.css` | Blog listing grid, post cards, pagination, filters, featured/sticky posts, loading skeletons |
+
+#### Critical CSS (inlined in `<head>`, auto-generated)
+| File | Purpose |
+|------|---------|
+| `assets/css/critical/homepage.css` | Above-fold: tokens, reset, header skeleton, hero section, CTA buttons, logo bar filter |
+| `assets/css/critical/single-post.css` | Above-fold: tokens, reset, header skeleton, hero/page-header, sidebar visibility |
+| `assets/css/critical/archive.css` | Above-fold: tokens, reset, header skeleton, grid skeleton |
+
+Regenerate critical CSS after any above-fold CSS change: `./scripts/generate-critical.sh`
+
+#### Tailwind CLI
+The Tailwind v4 standalone CLI binary is at `./tailwindcss` (v4.2.2) with input config at `tailwind-input.css`. To regenerate `style.css` after adding new Tailwind classes to templates:
+```bash
+./tailwindcss -i tailwind-input.css -o style-new.css
+# Then prepend the WordPress theme header comment from the old style.css
+```
+The config disables Tailwind's preflight (we use `reset.css` instead) and strips unused default color families to reduce output size.
+
+#### Files NOT to touch
+- `assets/css/print.css` — Print styles (isolated by `@media print`)
+- `assets/css/customizer.css`, `customizer-repeater.css`, `customizer-fixes.css` — Admin customizer UI
+- `assets/css/editor-style.css` — Block editor styles
 
 ### Performance Optimizations
 
@@ -75,9 +118,13 @@ Three wp_ajax handlers in `inc/admin.php`: dismiss admin notices, toggle feature
 
 ## Conventions
 
-- **No build tools** — Edit CSS/JS files directly; they are production-ready
-- **Tailwind utilities** are pre-compiled into `style.css` and component CSS files; do not add new Tailwind classes without recompiling
+- **No build tools required** — CSS/JS files are production-ready. Tailwind CLI (`./tailwindcss`) is available for regenerating `style.css` when new utility classes are needed.
+- **CSS file ownership** — Every selector belongs to exactly ONE file. New components go in `components.css`. Layout containers are in `components.css`. Design token changes go in `tokens.css`. Element-level resets and typography scaling go in `reset.css`.
+- **Adding Tailwind classes** — Add the class to a PHP template or JS file, then run `./tailwindcss -i tailwind-input.css -o style-new.css` and prepend the WP theme header. Do not manually edit `style.css`.
+- **Critical CSS** — After changing above-fold styles, run `./scripts/generate-critical.sh` to regenerate. Critical CSS is inlined in `<head>` for first paint; full stylesheets load render-blocking after.
+- **`body { padding-top: 4rem }`** — Defined ONLY in `reset.css`. Never add this to other files.
 - **Theme mod keys** are prefixed with `dark_theme_simplicity_` (e.g., `dark_theme_simplicity_service_items`)
 - **Text domain** is `dark-theme-simplicity-3` for all translatable strings
 - **Accessibility** is built-in via `inc/accessibility.php` — maintain skip links, ARIA attributes, and semantic HTML
 - H2 headings in post content automatically get IDs added (for TOC anchoring) via the `the_content` filter in `functions.php`
+- **Deployment** — Upload individual files via `scp file hostinger:/remote/path` rather than `scp -r` which can create nested directories. Always purge LiteSpeed cache after: `wp litespeed-purge all`

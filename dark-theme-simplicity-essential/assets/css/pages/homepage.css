@@ -192,8 +192,130 @@
         animation: none;
         opacity: 1;
     }
-    
+
     .section-card {
         transition: none;
     }
+}
+
+/* ============================================
+   HERO CTA (absorbed from hero-cta.css)
+   ============================================ */
+
+.hero-headline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+    max-width: 800px;
+    letter-spacing: -0.02em;
+}
+
+.hero-subheadline {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.hero-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--hero-btn-color, #0085ff);
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.01em;
+}
+
+.hero-cta-primary:hover {
+    background-color: var(--hero-btn-hover, #0057a7);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0, 133, 255, 0.3);
+}
+
+.hero-cta-primary svg { transition: transform 0.2s ease; }
+.hero-cta-primary:hover svg { transform: translateX(3px); }
+
+.hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    letter-spacing: 0.01em;
+}
+
+.hero-cta-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 768px) {
+    .hero-headline { font-size: 3.5rem; }
+    .hero-subheadline { font-size: 1.375rem; }
+}
+
+@media (min-width: 1024px) {
+    .hero-headline { font-size: 4.25rem; }
+    .hero-subheadline { font-size: 1.5rem; }
+    .hero-cta-primary, .hero-cta-secondary { padding: 1.125rem 2.5rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-headline { font-size: 2rem; }
+    .hero-subheadline { font-size: 1.125rem; margin-bottom: 2rem; }
+    .hero-cta-group { flex-direction: column; align-items: center; width: 100%; max-width: 300px; }
+    .hero-cta-primary, .hero-cta-secondary { width: 100%; justify-content: center; padding: 0.875rem 1.5rem; }
+}
+
+/* ============================================
+   LOGO BAR (absorbed from logo-bar.css)
+   ============================================ */
+
+.logo-bar-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-bar-logo {
+    height: 2rem;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.logo-bar-logo:hover {
+    opacity: 1;
+    filter: none;
+}
+
+@media (min-width: 768px) {
+    .logo-bar-logo { height: 2.5rem; }
 }

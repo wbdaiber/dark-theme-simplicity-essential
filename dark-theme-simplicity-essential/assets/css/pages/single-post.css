@@ -68,7 +68,9 @@
    POST HERO SECTION
    ============================================ */
 
-/* Hero content centering */
+/* Base .hero-container and .page-header are now in components.css */
+/* These are single-post-specific overrides only */
+
 .hero-container {
   position: relative;
 }
@@ -78,7 +80,6 @@
   overflow: hidden;
 }
 
-/* Ensure content is centered and has proper width */
 .hero-container .text-center {
   width: 100%;
   max-width: 800px;
