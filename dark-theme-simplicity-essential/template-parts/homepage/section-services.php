@@ -7,7 +7,7 @@
         $services_description = get_theme_mod( 'dark_theme_simplicity_services_description', __( 'Comprehensive digital marketing solutions to elevate your online presence.', 'dark-theme-simplicity' ) );
         ?>
         <div class="text-center mb-16">
-            <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm font-medium mb-4 border border-blue-300/20">
+            <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm mb-4 border border-blue-300/20">
                 <?php esc_html_e( 'What We Do', 'dark-theme-simplicity' ); ?>
             </span>
             <h2 id="services-heading" class="text-4xl md:text-5xl font-bold mb-6">
@@ -74,7 +74,7 @@
                         $svg_icon = '<svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>';
                     }
                     ?>
-                    <div class="glass-card p-6 rounded-lg border border-zinc-700/30 hover:border-blue-500 hover:border-2 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20 group animate-fade-in <?php echo esc_attr($delay_class); ?>" style="transition: all 0.3s ease; background-color: <?php echo esc_attr($service_bg_color); ?> !important;" tabindex="0" role="article" aria-labelledby="service-title-<?php echo esc_attr($index); ?>">
+                    <div class="glass-card p-6 rounded-lg group animate-fade-in-up <?php echo esc_attr($delay_class); ?>" style="background-color: <?php echo esc_attr($service_bg_color); ?> !important;" tabindex="0" role="article" aria-labelledby="service-title-<?php echo esc_attr($index); ?>">
                         <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true" role="img" aria-label="<?php echo esc_attr($title); ?> service icon">
                             <?php echo $svg_icon; ?>
                         </div>
@@ -86,7 +86,7 @@
             } else {
                 // Fallback if no service items are defined
                 ?>
-                <div class="glass-card p-6 rounded-lg border border-zinc-700/30 hover:border-blue-500 hover:border-2 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20 group animate-fade-in" style="transition: all 0.3s ease; background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
+                <div class="glass-card p-6 rounded-lg group animate-fade-in-up" style="background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -96,7 +96,7 @@
                     <h3 class="text-2xl font-bold mb-3 text-white">Strategic SEO</h3>
                     <p class="text-xl text-light-100/70">Boost your visibility with search engine optimization that drives organic traffic.</p>
                 </div>
-                <div class="glass-card p-6 rounded-lg border border-zinc-700/30 hover:border-blue-500 hover:border-2 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20 group animate-fade-in animation-delay-200" style="transition: all 0.3s ease; background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
+                <div class="glass-card p-6 rounded-lg group animate-fade-in-up animation-delay-200" style="background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -109,7 +109,7 @@
                     <h3 class="text-2xl font-bold mb-3 text-white">Content Creation</h3>
                     <p class="text-xl text-light-100/70">Engaging, on-brand content that resonates with your target audience.</p>
                 </div>
-                <div class="glass-card p-6 rounded-lg border border-zinc-700/30 hover:border-blue-500 hover:border-2 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20 group animate-fade-in animation-delay-400" style="transition: all 0.3s ease; background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
+                <div class="glass-card p-6 rounded-lg group animate-fade-in-up animation-delay-400" style="background-color: <?php echo esc_attr($service_bg_color); ?> !important;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>

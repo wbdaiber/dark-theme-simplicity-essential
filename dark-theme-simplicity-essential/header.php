@@ -14,7 +14,7 @@ $contact_email = get_theme_mod('dark_theme_simplicity_contact_email', 'brad.daib
 ?>
 
 <header class="site-header">
-	<div class="container mx-auto px-4 h-full flex items-center justify-between">
+	<div class="container mx-auto h-full flex items-center justify-between">
 		<!-- Logo + Site Title -->
 		<a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
 			<?php get_template_part('template-parts/homepage/logo'); ?>

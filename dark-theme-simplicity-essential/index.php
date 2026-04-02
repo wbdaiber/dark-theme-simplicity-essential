@@ -39,7 +39,7 @@ get_header();
     }
     ?>
     <section class="<?php echo esc_attr($padding_classes); ?> bg-dark-300 blog-hero-section">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto">
             <div class="max-w-5xl <?php echo esc_attr($container_classes); ?> <?php echo esc_attr($alignment_classes); ?>">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white reveal-text">
                     <?php 
@@ -126,7 +126,7 @@ get_header();
         // Show admin notice if no featured posts are set and user can edit posts
         if (empty($featured_posts) && current_user_can('edit_posts')) : 
     ?>
-        <div class="container mx-auto px-4 py-4">
+        <div class="container mx-auto py-4">
             <div class="bg-blue-300/20 border-l-4 border-blue-300 text-light-100 p-4 rounded admin-notice">
                 <p>
                     <strong><?php _e('Admin Notice:', 'dark-theme-simplicity'); ?></strong> 
@@ -173,7 +173,7 @@ get_header();
     ?>
     <!-- Featured Articles Section -->
     <section class="py-16 bg-black">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto">
             <div class="flex justify-between items-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">
                     <?php echo empty($featured_posts) ? esc_html__('Recent Articles', 'dark-theme-simplicity') : esc_html__('Featured Articles', 'dark-theme-simplicity'); ?>
@@ -246,7 +246,7 @@ get_header();
 
     <!-- All Articles Section -->
     <section class="py-16">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto">
             <div class="mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">All Articles</h2>
             </div>
@@ -330,7 +330,7 @@ get_header();
         <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0"></div>
         <div class="container mx-auto max-w-5xl">
             <div class="text-center mb-16">
-                <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm font-medium mb-4 border border-blue-300/20">
+                <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm mb-4 border border-blue-300/20">
                     Get in Touch
                 </span>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-light-100">
@@ -342,7 +342,7 @@ get_header();
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <a href="mailto:<?php echo esc_attr(get_theme_mod('dark_theme_simplicity_contact_email', 'hello@braddaiber.com')); ?>" class="glass-card p-6 rounded-xl hover:border-blue-500 hover:border-2 hover:bg-blue-500/10 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20">
+                <a href="mailto:<?php echo esc_attr(get_theme_mod('dark_theme_simplicity_contact_email', 'hello@braddaiber.com')); ?>" class="glass-card p-6 rounded-xl">
                     <div class="flex items-center space-x-4">
                         <div class="bg-blue-300/20 p-3 rounded-lg">
                             <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -355,7 +355,7 @@ get_header();
                 </a>
 
                 <?php $linkedin_url = get_theme_mod('dark_theme_simplicity_contact_linkedin', 'linkedin.com/in/braddaiber'); ?>
-                <a href="<?php echo esc_url( strpos( $linkedin_url, 'http' ) === 0 ? $linkedin_url : 'https://' . $linkedin_url ); ?>" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-xl hover:border-blue-500 hover:border-2 hover:bg-blue-500/10 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20">
+                <a href="<?php echo esc_url( strpos( $linkedin_url, 'http' ) === 0 ? $linkedin_url : 'https://' . $linkedin_url ); ?>" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-xl">
                     <div class="flex items-center space-x-4">
                         <div class="bg-blue-300/20 p-3 rounded-lg">
                             <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -478,19 +478,6 @@ h3.text-xl.md\:text-2xl {
     transform: scale(1.05);
     opacity: 0.9;
     background-image: linear-gradient(to top right, rgba(96, 165, 250, 0.3), rgba(192, 132, 252, 0.3));
-}
-
-/* Glass card styling for contact section */
-.glass-card {
-    background-color: rgba(30, 30, 36, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.contact-icon {
-    color: #60a5fa;
 }
 
 /* Admin notice styling */

@@ -27,7 +27,7 @@ if ($show_share === '') {
 }
 ?>
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="container mx-auto py-16">
     <div class="<?php echo $show_sidebar ? 'flex flex-col md:flex-row gap-8' : ''; ?>">
         <!-- Main content column -->
         <div class="<?php echo esc_attr($content_class); ?>">
@@ -96,7 +96,7 @@ if ($show_share === '') {
                         </div>
                     <?php endif; ?>
 
-                    <div class="entry-content prose prose-invert max-w-none text-light-100/80">
+                    <div class="entry-content text-light-100/80">
                         <?php the_content(); ?>
                     </div>
 

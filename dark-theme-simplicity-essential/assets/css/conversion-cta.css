@@ -35,10 +35,6 @@
         display: flex;
     }
 
-    /* Override old .desktop-nav display rule — it's now inside the group */
-    .desktop-nav {
-        display: block;
-    }
 }
 
 /* --- Mobile CTA (top of mobile menu) --- */

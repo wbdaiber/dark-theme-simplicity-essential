@@ -66,7 +66,7 @@ if (post_password_required()) {
                                 </div>
                             </footer>
 
-                            <div class="comment-content prose dark:prose-invert mt-4">
+                            <div class="comment-content mt-4">
                                 <?php comment_text(); ?>
                             </div>
 

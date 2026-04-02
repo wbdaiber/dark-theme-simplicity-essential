@@ -10,7 +10,7 @@ get_header();
 <main id="content" class="site-main bg-dark-200">
     <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-dark-300 tools-hero-section">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
             <div class="max-w-5xl mx-auto text-center">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white reveal-text">
                     <?php 
@@ -80,7 +80,7 @@ get_header();
 
     <!-- Tools Grid Section -->
     <section class="py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
             <div class="mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">
                     <?php 
@@ -201,7 +201,7 @@ get_header();
         <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0"></div>
         <div class="container mx-auto max-w-5xl">
             <div class="text-center mb-16">
-                <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm font-medium mb-4 border border-blue-300/20">
+                <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm mb-4 border border-blue-300/20">
                     Need Help?
                 </span>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-light-100">
@@ -221,7 +221,7 @@ get_header();
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <a href="mailto:<?php echo esc_attr(get_theme_mod('dark_theme_simplicity_contact_email', 'hello@braddaiber.com')); ?>" class="glass-card p-6 rounded-xl hover:border-blue-500 hover:border-2 hover:bg-blue-500/10 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20">
+                <a href="mailto:<?php echo esc_attr(get_theme_mod('dark_theme_simplicity_contact_email', 'hello@braddaiber.com')); ?>" class="glass-card p-6 rounded-xl">
                     <div class="flex items-center space-x-4">
                         <div class="bg-blue-300/20 p-3 rounded-lg">
                             <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -234,7 +234,7 @@ get_header();
                 </a>
 
                 <?php $linkedin_url = get_theme_mod('dark_theme_simplicity_contact_linkedin', 'linkedin.com/in/braddaiber'); ?>
-                <a href="<?php echo esc_url( strpos( $linkedin_url, 'http' ) === 0 ? $linkedin_url : 'https://' . $linkedin_url ); ?>" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-xl hover:border-blue-500 hover:border-2 hover:bg-blue-500/10 hover:translate-y-[-5px] transition-all duration-300 shadow-md hover:shadow-blue-500/20">
+                <a href="<?php echo esc_url( strpos( $linkedin_url, 'http' ) === 0 ? $linkedin_url : 'https://' . $linkedin_url ); ?>" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-xl">
                     <div class="flex items-center space-x-4">
                         <div class="bg-blue-300/20 p-3 rounded-lg">
                             <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

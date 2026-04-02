@@ -22,7 +22,7 @@ $layout_classes = $post_helper->get_layout_classes();
         	) ); ?>
        	 
         	<!-- Main Content -->
-        	<article class="post-container container mx-auto px-4 max-w-6xl bg-dark-300 <?php echo esc_attr( $layout_classes['visibility_classes'] ); ?>">
+        	<article class="post-container container mx-auto max-w-6xl bg-dark-300 <?php echo esc_attr( $layout_classes['visibility_classes'] ); ?>">
             	<div class="post-content p-4 md:p-12">
                	 
                 	<!-- Mobile TOC -->
@@ -38,7 +38,7 @@ $layout_classes = $post_helper->get_layout_classes();
                    	 
                     	<!-- Main Content Column -->
                     	<div class="flex-1 <?php echo esc_attr( $layout_classes['content_width_class'] ); ?>">
-                        	<div class="entry-content prose prose-invert max-w-none text-light-100/80 prose-p:leading-relaxed prose-headings:mt-8 prose-headings:mb-4">
+                        	<div class="entry-content text-light-100/80">
                             	<?php the_content(); ?>
                         	</div>
                     	</div>

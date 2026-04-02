@@ -37,10 +37,10 @@ function dark_theme_simplicity_scripts() {
    wp_enqueue_style('dts-header', get_template_directory_uri() . '/assets/css/header.css', array('dts-components'), $theme_ver);
 
    // 6. Conversion CTAs
-   wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), '1.0.0');
+   wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), $theme_ver);
 
    // Print styles
-   wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), '1.0.0', 'print');
+   wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), $theme_ver, 'print');
 
    // Page-specific styles (depend on components)
    if (is_front_page()) {
@@ -62,7 +62,7 @@ function dark_theme_simplicity_scripts() {
        'dts-config',
        get_template_directory_uri() . '/assets/js/config.js',
        array(),
-       '1.0.0',
+       $theme_ver,
        true
    );
   
@@ -71,7 +71,7 @@ function dark_theme_simplicity_scripts() {
        'dts-core',
        get_template_directory_uri() . '/assets/js/core.js',
        array('dts-config'),
-       '2.0.0',
+       $theme_ver,
        true
    );
   
@@ -80,7 +80,7 @@ function dark_theme_simplicity_scripts() {
        'dts-navigation',
        get_template_directory_uri() . '/assets/js/navigation.js',
        array('dts-config', 'dts-core'),
-       '2.0.0',
+       $theme_ver,
        true
    );
   
@@ -89,7 +89,7 @@ function dark_theme_simplicity_scripts() {
        'dts-content',
        get_template_directory_uri() . '/assets/js/content.js',
        array('dts-config', 'dts-core'),
-       '2.0.0',
+       $theme_ver,
        true
    );
 
@@ -99,7 +99,7 @@ function dark_theme_simplicity_scripts() {
            'dts-single-post',
            get_template_directory_uri() . '/assets/js/pages/single-post.js',
            array('dts-config', 'dts-core'),
-           '2.0.0',
+           $theme_ver,
            true
        );
    }
@@ -110,7 +110,7 @@ function dark_theme_simplicity_scripts() {
            'dark-theme-editor-customizations',
            get_template_directory_uri() . '/assets/js/editor-customizations.js',
            array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
-           '1.2.1',
+           $theme_ver,
            true
        );
    }
@@ -151,40 +151,42 @@ add_filter('body_class', 'dark_theme_simplicity_body_classes');
 * Enqueue customizer scripts (CONSOLIDATED VERSION)
 */
 function dark_theme_simplicity_customize_controls_enqueue_scripts() {
+   $theme_ver = wp_get_theme()->get('Version');
+
    // Customizer styles (only if files exist)
    if (file_exists(get_template_directory() . '/assets/css/customizer.css')) {
        wp_enqueue_style(
            'dark-theme-customizer-style',
            get_template_directory_uri() . '/assets/css/customizer.css',
            array(),
-           '1.2.1'
+           $theme_ver
        );
    }
-  
+
    if (file_exists(get_template_directory() . '/assets/css/customizer-repeater.css')) {
        wp_enqueue_style(
            'dark-theme-customizer-repeater',
            get_template_directory_uri() . '/assets/css/customizer-repeater.css',
            array(),
-           '1.2.1'
+           $theme_ver
        );
    }
-  
+
    if (file_exists(get_template_directory() . '/assets/css/customizer-fixes.css')) {
        wp_enqueue_style(
            'dark-theme-customizer-fixes',
            get_template_directory_uri() . '/assets/css/customizer-fixes.css',
            array(),
-           '1.2.1'
+           $theme_ver
        );
    }
-  
+
    // Consolidated customizer JavaScript
    wp_enqueue_script(
        'dark-theme-customizer-consolidated',
        get_template_directory_uri() . '/assets/js/pages/customizer.js',
        array('jquery', 'customize-controls', 'jquery-ui-sortable'),
-       '1.2.1',
+       $theme_ver,
        true
    );
 }

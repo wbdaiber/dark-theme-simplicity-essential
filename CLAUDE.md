@@ -43,9 +43,7 @@ Nearly all frontend content (hero text, service cards, benefits, approach steps,
 
 ### Critical CSS System
 
-`inc/critical-css.php` inlines above-the-fold CSS from `assets/css/critical/` (homepage, single-post, archive) and async-loads remaining stylesheets via `<link rel="preload" onload="this.rel='stylesheet'">`. Page type detection in `dts_get_critical_css_file()` selects the correct critical file.
-
-**Important:** Because async-preloaded stylesheets apply in download-completion order (not HTML order), any above-fold styles that could conflict with Tailwind's preflight resets MUST be included in the critical CSS files, not just in async-loaded page CSS. See `~/.claude/plans/css-architecture-to-grade-a.md` for the plan to simplify this.
+`inc/critical-css.php` inlines above-the-fold CSS from `assets/css/critical/` (homepage, single-post, archive) as a `<style id="critical-css">` block in `<head>` for first paint. Full stylesheets load render-blocking via standard `<link>` tags (deterministic cascade order). Page type detection in `dts_get_critical_css_file()` selects the correct critical file.
 
 ### JavaScript Loading Order
 
