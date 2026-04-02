@@ -161,7 +161,7 @@ function fallback_nav_menu() {
 	echo '<ul class="nav-menu">';
 	foreach ($menu_items as $url => $label) {
     	printf(
-        	'<li><a href="%s" class="nav-link">%s</a></li>',
+        	'<li><a href="%s" class="header-nav-link">%s</a></li>',
         	esc_url($url),
         	esc_html($label)
     	);
@@ -495,7 +495,7 @@ class Dark_Theme_Simplicity_Walker_Nav extends Walker_Nav_Menu {
 	private $link_class;
 	private $use_group;
 
-	public function __construct($link_class = 'nav-link', $use_group = false) {
+	public function __construct($link_class = 'header-nav-link', $use_group = false) {
 		$this->link_class = $link_class;
 		$this->use_group = $use_group;
 	}

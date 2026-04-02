@@ -32,7 +32,7 @@ $contact_email = get_theme_mod('dark_theme_simplicity_contact_email', 'brad.daib
 					'fallback_cb'    => 'fallback_nav_menu',
 					'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'depth'          => 1,
-					'walker'         => new Dark_Theme_Simplicity_Walker_Nav('nav-link', true),
+					'walker'         => new Dark_Theme_Simplicity_Walker_Nav('header-nav-link', true),
 				));
 				?>
 			</nav>

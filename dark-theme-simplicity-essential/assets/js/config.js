@@ -29,18 +29,15 @@ const DTSConfig = {
     mobileMenu: '#mobile-menu',
     mobileToggle: '#mobile-menu-toggle',
     mobileOverlay: '#mobile-menu-overlay',
-    navLinks: '.nav-link',
+    navLinks: '.header-nav-link',
     
     // Content
     entryContent: '.entry-content',
-    prose: '.prose',
-    
+
     // Blog & Posts
     shareBtn: '#share-btn',
     mobileShareBtn: '.mobile-share-btn',
     shareDropdown: '#share-dropdown',
-    tocDropdown: '#toc-dropdown',
-    tocBtn: '#toc-btn',
     
     // Forms
     contactForm: '.wpcf7-form',
@@ -60,19 +57,11 @@ const DTSConfig = {
     
     // Mobile Menu
     mobileMenuOpen: 'mobile-menu-open',
-    menuOpen: 'menu-open',
-    
+
     // Header
     headerScrolled: 'scrolled',
-    headerHidden: 'header-hidden',
-    
-    // Animations
-    fadeIn: 'fade-in',
-    fadeOut: 'fade-out',
-    
+
     // Components
-    prose: 'prose',
-    tableResponsive: 'table-responsive',
     videoResponsive: 'responsive-video-wrapper'
   },
   

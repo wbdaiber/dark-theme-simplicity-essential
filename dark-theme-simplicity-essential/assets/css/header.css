@@ -62,15 +62,15 @@
 	padding: 0;
 }
 
-.nav-link {
+.header-nav-link {
 	color: white;
 	text-decoration: none;
 	font-weight: 500;
 	transition: color 0.2s ease;
 }
 
-.nav-link:hover,
-.nav-link:focus {
+.header-nav-link:hover,
+.header-nav-link:focus {
 	color: #60a5fa;
 }
 
@@ -273,7 +273,7 @@
 }
 
 /* Focus Styles for Accessibility */
-.nav-link:focus,
+.header-nav-link:focus,
 .mobile-nav-menu a:focus,
 .mobile-menu-toggle:focus {
 	outline: 2px solid #60a5fa;
@@ -292,7 +292,7 @@
 	.mobile-menu,
 	.mobile-menu-overlay,
 	.hamburger-line,
-	.nav-link,
+	.header-nav-link,
 	.mobile-nav-menu a {
 		transition: none;
 	}

@@ -1,17 +1,5 @@
 /* Homepage Specific Styles */
 
-/* Loading States */
-.dts-loading .animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.dts-loaded .animate-fade-in-up {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
 /* Lazy Loading Animation */
 .dts-animate-in {
     opacity: 1 !important;

@@ -564,41 +564,6 @@
   margin: 0;
 }
 
-/* Nav Link — generic base styles.
-   header.css intentionally overrides color, transition, and hover color
-   for .nav-link elements in the site header. The remaining properties
-   below (display, padding, border-radius, hover background-color) leak
-   through to header nav links — this is a known issue. A future phase
-   should either rename header nav links to .header-nav-link or remove
-   the generic rules here if .nav-link is never used outside the header. */
-.nav-link {
-  display: block;
-  padding: var(--spacing-sm) var(--spacing-md);
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-base);
-}
-
-.nav-link:hover {
-  background-color: var(--dark-300);
-  color: var(--accent-blue);
-}
-
-.nav-link.active {
-  background-color: var(--accent-blue-muted);
-  color: var(--accent-blue-hover);
-}
-
-@media (max-width: 767px) {
-  .nav-link {
-    padding: var(--spacing-md) var(--spacing-md);
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-}
-
 /* ============================================
    BREADCRUMBS
    ============================================ */
@@ -801,6 +766,12 @@
   border-color: rgba(59, 130, 246, 0.5);
 }
 
+/* Dropdown positioning — applied dynamically by core.js positionDropdown() */
+.dropdown--top { bottom: 100%; top: auto; }
+.dropdown--bottom { top: 100%; bottom: auto; }
+.dropdown--left { right: 100%; left: auto; }
+.dropdown--right { left: 100%; right: auto; }
+
 /* Dropdown Animations */
 #share-dropdown,
 .mobile-share-dropdown,
@@ -845,12 +816,6 @@
   outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-}
-
-.nav-link:focus-visible {
-  outline: 2px solid var(--accent-blue);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 .breadcrumbs a:focus-visible {

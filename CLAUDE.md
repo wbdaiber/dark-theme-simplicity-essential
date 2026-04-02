@@ -39,7 +39,7 @@ Nearly all frontend content (hero text, service cards, benefits, approach steps,
 ### Key Classes
 
 - **`DTS_Post_Helper`** (`inc/class-dts-post-helper.php`) — Manages post display settings via post meta (`_show_sidebar_widgets`, `_show_table_of_contents`, `_show_share_buttons`), extracts H2 headings for TOC
-- **Walker classes** (`functions.php` lines 595-709) — Four custom `Walker_Nav_Menu` subclasses for desktop, mobile, footer, and social menus, each outputting Tailwind-styled markup
+- **Walker classes** (`functions.php`) — `Dark_Theme_Simplicity_Walker_Nav` (parameterized, used for desktop with `header-nav-link` and mobile with `mobile-nav-link`) and `Dark_Theme_Simplicity_Walker_Simple_Menu` (footer/social menus with Tailwind classes)
 
 ### Critical CSS System
 
@@ -50,8 +50,8 @@ Nearly all frontend content (hero text, service cards, benefits, approach steps,
 Scripts are vanilla JS loaded in dependency chain via `inc/enqueue.php`:
 1. `config.js` (constants, no deps)
 2. `core.js` (utilities, exposes `window.DTSCore`)
-3. `header.js` → `navigation.js` → `content.js` → `consolidated-theme.js`
-4. Page-specific: `blog-consolidated.js` (single posts), `customizer.js` (customizer preview)
+3. `navigation.js` → `content.js`
+4. Page-specific: `pages/single-post.js` (single posts, depends on core), `blog-consolidated.js` (single posts, enqueued in `functions.php`), `pages/customizer.js` (admin customizer, jQuery)
 
 ### CSS Architecture (Grade A — April 2025)
 
@@ -69,8 +69,8 @@ Inline critical CSS (`<style id="critical-css">`) is injected in `<head>` before
 | `assets/css/tokens.css` | ALL `:root` CSS custom properties — design system variables (colors, spacing, typography, shadows, z-index) |
 | `assets/css/reset.css` | Element-level resets, body styles (SINGLE source for `body { padding-top: 4rem }`), base typography (h1-h6, p, a, lists), responsive typography scaling (md/lg breakpoints), accessibility (.screen-reader-text, .skip-link, :focus-visible), prefers-reduced-motion/prefers-contrast |
 | `style.css` | Auto-generated Tailwind v4 utilities (no preflight). Regenerate: `./tailwindcss -i tailwind-input.css -o style-new.css` then prepend the WP theme header comment. Config: `tailwind-input.css`. Scans PHP templates + JS files for used classes. |
-| `assets/css/components.css` | Layout containers (.container, .content-container, .section + responsive scaling), reusable UI components with co-located responsive variants: .site/.site-main, .entry-content, .content-layout (sidebar grid), .page-header, .hero-container, .sidebar-container, .card/.glass-card, .btn variants, .form-*, .table, .nav-link, .breadcrumbs, .badge, .alert, .widget, interactive feedback (.dts-copy-feedback, .toc-link.active), focus/accessibility enhancements |
-| `assets/css/header.css` | .site-header, .site-logo, .site-title, .desktop-nav, .nav-menu, .mobile-menu*, .hamburger-*, navigation breakpoints |
+| `assets/css/components.css` | Layout containers (.container, .content-container, .section + responsive scaling), reusable UI components with co-located responsive variants: .site/.site-main, .entry-content, .content-layout (sidebar grid), .page-header, .hero-container, .sidebar-container, .card/.glass-card, .btn variants, .form-*, .table, .dropdown--top/bottom/left/right (positioning), .breadcrumbs, .badge, .alert, .widget, interactive feedback (.dts-copy-feedback, .toc-link.active), focus/accessibility enhancements |
+| `assets/css/header.css` | .site-header, .site-logo, .site-title, .desktop-nav, .nav-menu, .header-nav-link, .mobile-menu*, .hamburger-*, navigation breakpoints |
 | `assets/css/conversion-cta.css` | Nav CTA button, sidebar CTA card, mobile CTA |
 
 #### Page-specific CSS (loaded conditionally)
