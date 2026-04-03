@@ -1,6 +1,6 @@
 <!-- Contact Section -->
 <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-200 contact-section" data-lazy-load>
-    <div class="container mx-auto max-w-5xl">
+    <div class="container">
         <div class="text-center mb-16">
             <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm mb-4 border border-blue-300/20">
                 Get in Touch
@@ -49,10 +49,10 @@
             );
             
             foreach ($contact_items as $index => $item) :
-                $animation_delay = $index * 200; // 0, 200, etc.
-                $delay_class = $index > 0 ? "animation-delay-{$animation_delay}" : "";
+                $delay_map = array( 1 => 'animation-delay-200', 2 => 'animation-delay-400', 3 => 'animation-delay-600' );
+                $delay_class = isset( $delay_map[ $index ] ) ? $delay_map[ $index ] : ( $index > 3 ? 'animation-delay-600' : '' );
             ?>
-            <a href="<?php echo esc_attr($item['url']); ?>" <?php echo $item['target'] ? 'target="' . esc_attr($item['target']) . '"' : ''; ?> <?php echo $item['rel'] ? 'rel="' . esc_attr($item['rel']) . '"' : ''; ?> class="glass-card p-6 rounded-xl animate-fade-in-up <?php echo esc_attr($delay_class); ?>">
+            <a href="<?php echo esc_attr($item['url']); ?>" <?php echo $item['target'] ? 'target="' . esc_attr($item['target']) . '"' : ''; ?> <?php echo $item['rel'] ? 'rel="' . esc_attr($item['rel']) . '"' : ''; ?> class="glass-card p-6 animate-fade-in-up <?php echo esc_attr($delay_class); ?>">
                 <div class="flex items-center space-x-4">
                     <div class="bg-blue-300/20 p-3 rounded-lg">
                         <?php if ($item['type'] === 'email') : ?>

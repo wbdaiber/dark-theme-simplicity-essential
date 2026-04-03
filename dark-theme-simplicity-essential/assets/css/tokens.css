@@ -8,8 +8,8 @@
   /* ========== Colors ========== */
   --dark-bg: rgb(26, 26, 28);
   --dark-bg-transparent: rgba(26, 26, 28, 0.95);
-  --dark-300: rgba(31, 41, 55, 1);
-  --dark-400: rgba(55, 65, 81, 1);
+  --surface-300: rgba(31, 41, 55, 1);
+  --surface-400: rgba(55, 65, 81, 1);
 
   --text-primary: rgba(255, 255, 255, 0.9);
   --text-secondary: rgba(255, 255, 255, 0.95);

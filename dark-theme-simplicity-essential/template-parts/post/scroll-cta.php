@@ -9,7 +9,7 @@
 $contact_email = get_theme_mod( 'dark_theme_simplicity_contact_email', 'brad.daiber1@gmail.com' );
 ?>
 
-<div id="scroll-cta" class="scroll-cta" aria-hidden="true" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:50;max-width:320px;opacity:0;pointer-events:none;transition:opacity .4s ease,transform .4s ease">
+<div id="scroll-cta" class="scroll-cta" aria-hidden="true">
     <div class="scroll-cta-inner">
         <p class="scroll-cta-text">
             <?php esc_html_e( "Hi there! I'm currently open to new opportunities. Want to connect?", 'dark-theme-simplicity' ); ?>

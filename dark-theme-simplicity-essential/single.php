@@ -6,15 +6,14 @@
  */
 
 get_header();
-
-// Get the post helper instance
-$post_helper = new DTS_Post_Helper( get_the_ID() );
-$display_settings = $post_helper->get_display_settings();
-$layout_classes = $post_helper->get_layout_classes();
 ?>
 
 <main id="content" class="site-main">
-    	<?php while ( have_posts() ) : the_post(); ?>
+    	<?php while ( have_posts() ) : the_post();
+    	$post_helper = new DTS_Post_Helper( get_the_ID() );
+    	$display_settings = $post_helper->get_display_settings();
+    	$layout_classes = $post_helper->get_layout_classes();
+    	?>
        	 
         	<!-- Hero Section -->
         	<?php get_template_part( 'template-parts/post/hero', null, array(
@@ -22,7 +21,7 @@ $layout_classes = $post_helper->get_layout_classes();
         	) ); ?>
        	 
         	<!-- Main Content -->
-        	<article class="post-container container mx-auto max-w-6xl bg-dark-300 <?php echo esc_attr( $layout_classes['visibility_classes'] ); ?>">
+        	<article class="post-container container bg-dark-300 <?php echo esc_attr( $layout_classes['visibility_classes'] ); ?>">
             	<div class="post-content p-4 md:p-12">
                	 
                 	<!-- Mobile TOC -->
@@ -60,6 +59,9 @@ $layout_classes = $post_helper->get_layout_classes();
         	<div class="lg:hidden">
             	<?php get_template_part( 'template-parts/post/mobile-cta' ); ?>
         	</div>
+
+        	<!-- Author Card -->
+        	<?php get_template_part( 'template-parts/post/author-card' ); ?>
 
         	<!-- Related Posts Section -->
         	<?php get_template_part( 'template-parts/post/related-posts' ); ?>

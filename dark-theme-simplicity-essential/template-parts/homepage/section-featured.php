@@ -18,7 +18,7 @@ $featured_title = get_theme_mod( 'dark_theme_simplicity_featured_bar_title', 'Cl
 
 <!-- Featured In Section -->
 <section class="py-12 px-4 sm:px-6 lg:px-8 bg-dark-200 logo-bar-section" aria-label="<?php echo esc_attr( $featured_title ); ?>">
-    <div class="container mx-auto max-w-5xl">
+    <div class="container">
         <p class="text-center text-sm font-medium text-light-100/50 uppercase tracking-widest mb-8">
             <?php echo esc_html( $featured_title ); ?>
         </p>

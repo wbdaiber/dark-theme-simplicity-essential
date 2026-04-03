@@ -14,12 +14,30 @@
 /* ========== Strip unused default theme colors ========== */
 /* Keep: black, white, gray (used in templates/JS). Remove all others. */
 @theme {
+  /* Gray palette — hex values matching v3 output (NOT oklch defaults) */
+  --color-gray-*: initial;
+  --color-gray-100: #f3f4f6;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
   --color-red-*: initial;
+  --color-red-300: #fca5a5;
+
   --color-orange-*: initial;
   --color-amber-*: initial;
+
   --color-yellow-*: initial;
+  --color-yellow-300: #fde047;
+
   --color-lime-*: initial;
+
   --color-green-*: initial;
+  --color-green-300: #86efac;
+
   --color-emerald-*: initial;
   --color-teal-*: initial;
   --color-cyan-*: initial;
@@ -27,7 +45,11 @@
   --color-blue-*: initial;
   --color-indigo-*: initial;
   --color-violet-*: initial;
+
   --color-purple-*: initial;
+  --color-purple-300: #d8b4fe;
+  --color-purple-400: #c084fc;
+
   --color-fuchsia-*: initial;
   --color-pink-*: initial;
   --color-rose-*: initial;
@@ -40,17 +62,37 @@
   --color-olive-*: initial;
   --color-taupe-*: initial;
 
-  /* Custom colors matching the dark theme design system */
-  --color-dark-100: #1a1a1c;
-  --color-dark-200: #121214;
-  --color-dark-300: #0c0c0e;
-  --color-dark-400: #373951;
+  /* Custom colors — must match v3 compiled output, NOT tokens.css.
+     tokens.css --dark-300/#1f2937 is for component CSS via var(--dark-300).
+     Tailwind utilities bg-dark-300 etc. use these different values from the
+     original v3 config which had its own darker color scale. */
+  --color-dark-100: #1a1a1c;  /* rgb(26,26,28) — matches v3 */
+  --color-dark-200: #121214;  /* rgb(18,18,20) — matches v3 */
+  --color-dark-300: #0c0c0e;  /* rgb(12,12,14) — matches v3 (NOT tokens.css #1f2937) */
+  --color-dark-400: initial;  /* NOT in v3 — must not generate bg-dark-400 utility */
 
   --color-light-100: #ffffff;
 
   --color-blue-300: #0085ff;
   --color-blue-400: #0057a7;
   --color-blue-500: #003d75;
+  --color-yellow-400: #facc15;
+  --color-yellow-600: #ca8a04;
+  --color-primary: #0085ff;
+  --color-primary-dark: #0057a7;
+
+  /* ========== Variable collision overrides ========== */
+  /* These MUST match tokens.css exactly. v4's @theme compiles to unlayered
+     :root which loads after tokens.css — without these overrides, Tailwind
+     defaults silently replace our design system values. */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
 
   /* Breakpoints (matching theme design system) */
   --breakpoint-sm: 640px;
@@ -61,13 +103,7 @@
 }
 
 /* ========== Custom utilities using CSS variables from tokens.css ========== */
-@utility bg-dark-300 {
-  background-color: var(--dark-300);
-}
-
-@utility bg-dark-400 {
-  background-color: var(--dark-400);
-}
+/* bg-dark-300 and bg-dark-400 @utility overrides removed — @theme now matches tokens.css */
 
 @utility border {
   border: 1px solid var(--border-color);

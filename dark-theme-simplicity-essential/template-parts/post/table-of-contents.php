@@ -12,7 +12,7 @@ if ( empty( $headings ) ) {
 }
 ?>
 
-<div class="toc-desktop p-1.5 bg-dark-400 rounded-lg">
+<div class="toc-desktop p-1.5 rounded-lg">
     <div class="toc-label toc-heading text-xs font-medium mb-1 px-1" role="heading" aria-level="2">
         <?php esc_html_e( 'Contents', 'dark-theme-simplicity' ); ?>
     </div>

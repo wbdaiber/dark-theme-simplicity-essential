@@ -8,9 +8,17 @@
    SINGLE POST LAYOUT
    ============================================ */
 
+/* Match body + site-main bg to content blocks so margins create spacing, not seams.
+   Content blocks use bg-dark-300 (#0c0c0e). Body default is bg-dark-200 (#121214),
+   site-main default is var(--dark-bg) (#1a1a1c) — both lighter, creating visible strips. */
+body.single {
+  background-color: #0c0c0e;
+}
+
 .single .site-main {
   padding-top: 0;
-  padding-bottom: var(--spacing-2xl);
+  padding-bottom: 0;
+  background-color: #0c0c0e;
 }
 
 /* Content Layout for Posts */
@@ -71,11 +79,13 @@
 /* Base .hero-container and .page-header are now in components.css */
 /* These are single-post-specific overrides only */
 
-.hero-container {
+/* Remove gap between hero and content — same bg now merges them */
+.single .hero-container {
+  margin-bottom: 0;
   position: relative;
 }
 
-.page-header {
+.single .page-header {
   position: relative;
   overflow: hidden;
 }
@@ -91,7 +101,7 @@
   min-height: auto;
   display: flex;
   align-items: center;
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   overflow: hidden;
   margin-bottom: var(--spacing-xl);
 }
@@ -127,7 +137,7 @@
 }
 
 /* Hero content */
-.hero-content {
+.single .hero-content {
   position: relative;
   z-index: 10;
   width: 100%;
@@ -301,14 +311,14 @@
 .post-nav-link {
   display: block;
   padding: var(--spacing-md);
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: all var(--transition-base);
 }
 
 .post-nav-link:hover {
-  background-color: var(--dark-400);
+  background-color: var(--surface-400);
   transform: translateY(-2px);
 }
 
@@ -348,7 +358,7 @@
 }
 
 .related-post-card {
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
@@ -366,7 +376,7 @@
 
 .related-post-image {
   aspect-ratio: 16/9;
-  background: linear-gradient(45deg, var(--accent-blue-muted), var(--dark-400));
+  background: linear-gradient(45deg, var(--accent-blue-muted), var(--surface-400));
   position: relative;
   overflow: hidden;
 }
@@ -418,7 +428,7 @@
 .comment {
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg);
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-md);
 }
 
@@ -487,20 +497,12 @@
     max-width: none;
   }
   
-  /* No sidebar layout */
-  .no-sidebar .entry-content {
-    max-width: var(--content-wide);
-    margin: 0 auto;
-  }
+  /* No sidebar layout — owned by components.css */
 }
 
 /* Large Desktop */
 @media (min-width: 1280px) {
-  .no-sidebar .entry-content {
-    max-width: var(--content-full);
-  }
-  
-  .hero-content {
+  .single .hero-content {
     max-width: var(--content-full);
   }
 }
@@ -628,13 +630,13 @@
 }
 
 .scroll-cta.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .scroll-cta-inner {
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-lg);
   padding: 1.25rem;

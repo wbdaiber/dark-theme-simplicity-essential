@@ -1,7 +1,8 @@
 <?php
 /**
  * Related Posts CTA Card — "Work With Me" conversion card
- * Sits as the first item in the related posts grid (Detailed pattern)
+ * Sits as the first item in the related posts grid
+ * Differentiated from sidebar CTA with purple accent, social proof, gradient button
  *
  * @package Dark_Theme_Simplicity
  */
@@ -13,43 +14,50 @@ if ( strpos( $linkedin_url, 'http' ) !== 0 ) {
 }
 ?>
 
-<div class="related-post-card">
-    <div class="overflow-hidden bg-gradient-to-br from-blue-300/10 to-blue-300/5 border border-blue-300/20 rounded-xl h-full flex flex-col justify-between p-6">
-
-        <!-- Top: label + headline -->
-        <div>
-            <span class="inline-block px-2 py-0.5 bg-blue-300/20 rounded-full text-xs font-semibold text-blue-300 border border-blue-300/20 mb-4">
-                <?php esc_html_e( 'Available for Hire', 'dark-theme-simplicity' ); ?>
+<div class="related-post-card related-cta-card">
+    <div class="related-cta-inner">
+        <div class="related-cta-accent"></div>
+        <div class="related-cta-content">
+            <span class="related-cta-label">
+                <?php esc_html_e( "Let's Connect", 'dark-theme-simplicity-3' ); ?>
             </span>
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
-                <?php esc_html_e( 'Work With Me', 'dark-theme-simplicity' ); ?>
+            <h3 class="related-cta-title">
+                <?php esc_html_e( 'Work With Me', 'dark-theme-simplicity-3' ); ?>
             </h3>
-            <p class="text-sm text-light-100/70 leading-relaxed mb-4">
-                <?php esc_html_e( 'Looking for a content marketing leader who drives revenue? Let\'s talk.', 'dark-theme-simplicity' ); ?>
+            <p class="related-cta-desc">
+                <?php esc_html_e( 'Content strategist and web developer helping B2B companies drive measurable growth.', 'dark-theme-simplicity-3' ); ?>
             </p>
+            <div class="related-cta-proof">
+                <div class="related-cta-proof-item">
+                    <span class="related-cta-proof-number">10+</span>
+                    <span class="related-cta-proof-label"><?php esc_html_e( 'Years Experience', 'dark-theme-simplicity-3' ); ?></span>
+                </div>
+                <div class="related-cta-proof-divider"></div>
+                <div class="related-cta-proof-item">
+                    <span class="related-cta-proof-number">B2B</span>
+                    <span class="related-cta-proof-label"><?php esc_html_e( 'SaaS Focus', 'dark-theme-simplicity-3' ); ?></span>
+                </div>
+            </div>
         </div>
-
-        <!-- Bottom: action links -->
-        <div class="flex flex-col gap-2">
-            <a href="mailto:<?php echo esc_attr( $contact_email ); ?>"
-               class="inline-flex items-center justify-center gap-2 bg-blue-300/90 hover:bg-blue-300 text-white font-medium px-4 py-2 rounded-lg transition-colors text-sm">
+        <div class="related-cta-actions">
+            <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" class="related-cta-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <?php esc_html_e( 'Get In Touch', 'dark-theme-simplicity' ); ?>
+                <?php esc_html_e( 'Get In Touch', 'dark-theme-simplicity-3' ); ?>
             </a>
             <a href="<?php echo esc_url( $linkedin_url ); ?>"
                target="_blank"
                rel="noopener noreferrer"
-               class="inline-flex items-center justify-center gap-2 text-light-100/70 hover:text-blue-300 font-medium text-sm transition-colors">
-                <?php esc_html_e( 'LinkedIn', 'dark-theme-simplicity' ); ?>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
+               class="related-cta-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
                 </svg>
+                <?php esc_html_e( 'LinkedIn', 'dark-theme-simplicity-3' ); ?>
             </a>
         </div>
-
     </div>
 </div>

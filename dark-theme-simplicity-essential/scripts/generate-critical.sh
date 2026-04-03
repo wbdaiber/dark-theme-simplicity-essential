@@ -35,7 +35,7 @@ minify() {
 # ============================================================
 
 # 1. Essential :root variables (subset from tokens.css — only what above-fold needs)
-CRITICAL_VARS=':root{--dark-bg:rgb(26,26,28);--dark-300:rgba(31,41,55,1);--dark-400:rgba(55,65,81,1);--text-primary:rgba(255,255,255,0.9);--text-secondary:rgba(255,255,255,0.95);--text-muted:rgba(255,255,255,0.85);--accent-blue:rgba(59,130,246,0.9);--accent-blue-hover:rgba(59,130,246,1);--font-sans:'"'"'Inter'"'"',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--spacing-xs:0.25rem;--spacing-sm:0.5rem;--spacing-md:1rem;--spacing-lg:1.5rem;--spacing-xl:2rem;--spacing-2xl:3rem;--primary-blue:#0085ff;--primary-blue-hover:#0057a7;--border-color:rgba(255,255,255,0.1);--content-default:800px;--content-full:1200px;--radius-sm:0.25rem;--radius-md:0.5rem;--radius-lg:0.75rem}'
+CRITICAL_VARS=':root{--dark-bg:rgb(26,26,28);--surface-300:rgba(31,41,55,1);--surface-400:rgba(55,65,81,1);--text-primary:rgba(255,255,255,0.9);--text-secondary:rgba(255,255,255,0.95);--text-muted:rgba(255,255,255,0.85);--accent-blue:rgba(59,130,246,0.9);--accent-blue-hover:rgba(59,130,246,1);--font-sans:'"'"'Inter'"'"',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--spacing-xs:0.25rem;--spacing-sm:0.5rem;--spacing-md:1rem;--spacing-lg:1.5rem;--spacing-xl:2rem;--spacing-2xl:3rem;--primary-blue:#0085ff;--primary-blue-hover:#0057a7;--border-color:rgba(255,255,255,0.1);--content-default:800px;--content-full:1200px;--radius-sm:0.25rem;--radius-md:0.5rem;--radius-lg:0.75rem}'
 
 # 2. Box model reset
 CRITICAL_RESET='*,*::before,*::after{box-sizing:border-box}'
@@ -102,7 +102,7 @@ CSSEOF
 # Single Post critical CSS
 # ============================================================
 SINGLE_STRUCTURE='.site-main{flex:1;width:100%;background-color:var(--dark-bg)}.entry-content{width:100%;max-width:var(--content-default);margin:0 auto}'
-SINGLE_HERO='.page-header{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:auto;padding:var(--spacing-lg) var(--spacing-md);background-color:var(--dark-300);position:relative;overflow:hidden}.hero-container{width:100%;margin-bottom:var(--spacing-xl);position:relative}'
+SINGLE_HERO='.page-header{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:auto;padding:var(--spacing-lg) var(--spacing-md);background-color:var(--surface-300);position:relative;overflow:hidden}.hero-container{width:100%;margin-bottom:var(--spacing-xl);position:relative}'
 SINGLE_SIDEBAR='.sidebar-container{position:sticky;top:100px;max-height:calc(100vh - 120px);overflow-y:auto}.post-sidebar{display:none}@media(min-width:1024px){.post-sidebar{display:block!important}}'
 SINGLE_RESPONSIVE='@media(min-width:1024px){.entry-content{font-size:1.125rem}}'
 

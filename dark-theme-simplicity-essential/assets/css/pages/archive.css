@@ -8,10 +8,17 @@
    ARCHIVE LAYOUT
    ============================================ */
 
+/* Match site-main bg to section backgrounds so margins don't create visible seams */
+.blog-hero-description {
+  color: var(--desc-color, var(--text-muted));
+  opacity: var(--desc-opacity, 0.7);
+}
+
 .archive .site-main,
 .blog .site-main,
 .search .site-main {
   padding: var(--spacing-xl) 0 var(--spacing-2xl);
+  background-color: #121214;
 }
 
 /* Archive Header */
@@ -19,7 +26,7 @@
   text-align: center;
   margin-bottom: var(--spacing-2xl);
   padding: var(--spacing-2xl) var(--spacing-md);
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-lg);
 }
 
@@ -54,7 +61,7 @@
    ============================================ */
 
 .post-card {
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
@@ -72,7 +79,7 @@
   position: relative;
   aspect-ratio: 16/9;
   overflow: hidden;
-  background: linear-gradient(45deg, var(--accent-blue-muted), var(--dark-400));
+  background: linear-gradient(45deg, var(--accent-blue-muted), var(--surface-400));
 }
 
 .post-card-image img {
@@ -179,7 +186,7 @@
 }
 
 .post-tag {
-  background-color: var(--dark-400);
+  background-color: var(--surface-400);
   color: var(--text-muted);
   padding: 2px var(--spacing-xs);
   border-radius: var(--radius-sm);
@@ -212,7 +219,7 @@
   min-width: 44px;
   height: 44px;
   padding: 0 var(--spacing-sm);
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   color: var(--text-primary);
@@ -222,7 +229,7 @@
 }
 
 .page-numbers:hover {
-  background-color: var(--dark-400);
+  background-color: var(--surface-400);
   border-color: var(--accent-blue-muted);
   color: var(--accent-blue);
 }
@@ -295,7 +302,7 @@
   justify-content: space-between;
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg);
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-md);
 }
 
@@ -440,7 +447,7 @@
 }
 
 .post-skeleton {
-  background-color: var(--dark-300);
+  background-color: var(--surface-300);
   border-radius: var(--radius-lg);
   overflow: hidden;
   animation: pulse 2s infinite;
@@ -448,7 +455,7 @@
 
 .skeleton-image {
   aspect-ratio: 16/9;
-  background-color: var(--dark-400);
+  background-color: var(--surface-400);
 }
 
 .skeleton-content {
@@ -457,7 +464,7 @@
 
 .skeleton-line {
   height: 1rem;
-  background-color: var(--dark-400);
+  background-color: var(--surface-400);
   border-radius: var(--radius-sm);
   margin-bottom: var(--spacing-sm);
 }

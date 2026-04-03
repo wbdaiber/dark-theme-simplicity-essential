@@ -1,7 +1,7 @@
 <footer class="site-footer bg-dark-300 border-t border-white/10 mt-0">
-    <div class="container mx-auto py-16">
+    <div class="container py-20">
         <!-- Footer Top: Three Column Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 items-center">
             <!-- Logo + Tagline -->
             <div class="space-y-6">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">

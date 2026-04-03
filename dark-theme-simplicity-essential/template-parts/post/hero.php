@@ -32,7 +32,7 @@ $first_category = ! empty( $categories ) ? $categories[0] : null;
                     <?php get_template_part( 'template-parts/post/breadcrumbs' ); ?>
 
                     <!-- Category + reading time -->
-                    <div class="flex flex-wrap items-center gap-3 text-sm text-light-100/70 mb-3">
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-light-100/70 mb-6">
                         <?php if ( $first_category ) : ?>
                             <a href="<?php echo esc_url( get_category_link( $first_category->term_id ) ); ?>"
                                class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-blue-300/10 text-blue-300 hover:bg-blue-300/20 border-blue-300/20">
@@ -50,13 +50,13 @@ $first_category = ! empty( $categories ) ? $categories[0] : null;
                     </div>
 
                     <!-- Title -->
-                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-white leading-tight">
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-5 text-white leading-tight">
                         <?php the_title(); ?>
                     </h1>
 
                     <!-- Excerpt -->
                     <?php if ( has_excerpt() ) : ?>
-                        <p class="text-sm md:text-base text-light-100/70 mb-3 leading-relaxed max-w-xl">
+                        <p class="text-sm md:text-base text-light-100/70 mb-6 leading-relaxed max-w-xl">
                             <?php echo get_the_excerpt(); ?>
                         </p>
                     <?php endif; ?>

@@ -22,37 +22,40 @@ function dark_theme_simplicity_scripts() {
    // Inline critical CSS handles first paint; these load the full styles.
 
    // 1. Design tokens (CSS custom properties)
-   wp_enqueue_style('dts-tokens', get_template_directory_uri() . '/assets/css/tokens.css', array(), $theme_ver);
+   wp_enqueue_style('dts-tokens', get_template_directory_uri() . '/assets/css/tokens.css', array(), filemtime(get_template_directory() . '/assets/css/tokens.css') ?: $theme_ver);
 
    // 2. Element resets and base typography
-   wp_enqueue_style('dts-reset', get_template_directory_uri() . '/assets/css/reset.css', array('dts-tokens'), $theme_ver);
+   wp_enqueue_style('dts-reset', get_template_directory_uri() . '/assets/css/reset.css', array('dts-tokens'), filemtime(get_template_directory() . '/assets/css/reset.css') ?: $theme_ver);
 
    // 3. Main theme stylesheet — Tailwind v4 utilities (REQUIRED by WordPress)
-   wp_enqueue_style('dark-theme-simplicity-style', get_stylesheet_uri(), array('dts-reset'), $theme_ver);
+   wp_enqueue_style('dark-theme-simplicity-style', get_stylesheet_uri(), array('dts-reset'), filemtime(get_template_directory() . '/style.css') ?: $theme_ver);
+
+   // 3b. Extra utilities missing from the v3 Tailwind compile
+   wp_enqueue_style('dts-utilities-extra', get_template_directory_uri() . '/assets/css/utilities-extra.css', array('dark-theme-simplicity-style'), filemtime(get_template_directory() . '/assets/css/utilities-extra.css') ?: $theme_ver);
 
    // 4. Reusable UI components (includes layout containers)
-   wp_enqueue_style('dts-components', get_template_directory_uri() . '/assets/css/components.css', array('dark-theme-simplicity-style'), $theme_ver);
+   wp_enqueue_style('dts-components', get_template_directory_uri() . '/assets/css/components.css', array('dts-utilities-extra'), filemtime(get_template_directory() . '/assets/css/components.css') ?: $theme_ver);
 
    // 5. Header styles
-   wp_enqueue_style('dts-header', get_template_directory_uri() . '/assets/css/header.css', array('dts-components'), $theme_ver);
+   wp_enqueue_style('dts-header', get_template_directory_uri() . '/assets/css/header.css', array('dts-components'), filemtime(get_template_directory() . '/assets/css/header.css') ?: $theme_ver);
 
    // 6. Conversion CTAs
-   wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), $theme_ver);
+   wp_enqueue_style('dts-conversion-cta', get_template_directory_uri() . '/assets/css/conversion-cta.css', array('dts-header'), filemtime(get_template_directory() . '/assets/css/conversion-cta.css') ?: $theme_ver);
 
    // Print styles
-   wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), $theme_ver, 'print');
+   wp_enqueue_style('dts-print', get_template_directory_uri() . '/assets/css/print.css', array(), filemtime(get_template_directory() . '/assets/css/print.css') ?: $theme_ver, 'print');
 
    // Page-specific styles (depend on components)
    if (is_front_page()) {
-       wp_enqueue_style('dts-homepage', get_template_directory_uri() . '/assets/css/pages/homepage.css', array('dts-components'), $theme_ver);
+       wp_enqueue_style('dts-homepage', get_template_directory_uri() . '/assets/css/pages/homepage.css', array('dts-components'), filemtime(get_template_directory() . '/assets/css/pages/homepage.css') ?: $theme_ver);
    }
 
    if (is_single()) {
-       wp_enqueue_style('dts-single-post', get_template_directory_uri() . '/assets/css/pages/single-post.css', array('dts-components'), $theme_ver);
+       wp_enqueue_style('dts-single-post', get_template_directory_uri() . '/assets/css/pages/single-post.css', array('dts-components'), filemtime(get_template_directory() . '/assets/css/pages/single-post.css') ?: $theme_ver);
    }
 
    if (is_home() || is_archive() || is_search()) {
-       wp_enqueue_style('dts-archive', get_template_directory_uri() . '/assets/css/pages/archive.css', array('dts-components'), $theme_ver);
+       wp_enqueue_style('dts-archive', get_template_directory_uri() . '/assets/css/pages/archive.css', array('dts-components'), filemtime(get_template_directory() . '/assets/css/pages/archive.css') ?: $theme_ver);
    }
 
    // === JAVASCRIPT FILES (NEW MODULAR STRUCTURE) ===
@@ -62,34 +65,34 @@ function dark_theme_simplicity_scripts() {
        'dts-config',
        get_template_directory_uri() . '/assets/js/config.js',
        array(),
-       $theme_ver,
+       filemtime(get_template_directory() . '/assets/js/config.js') ?: $theme_ver,
        true
    );
-  
+
    // Core utilities (depends on config)
    wp_enqueue_script(
        'dts-core',
        get_template_directory_uri() . '/assets/js/core.js',
        array('dts-config'),
-       $theme_ver,
+       filemtime(get_template_directory() . '/assets/js/core.js') ?: $theme_ver,
        true
    );
-  
+
    // Navigation functionality (header, mobile menu)
    wp_enqueue_script(
        'dts-navigation',
        get_template_directory_uri() . '/assets/js/navigation.js',
        array('dts-config', 'dts-core'),
-       $theme_ver,
+       filemtime(get_template_directory() . '/assets/js/navigation.js') ?: $theme_ver,
        true
    );
-  
+
    // Content functionality (videos, smooth scroll, TOC)
    wp_enqueue_script(
        'dts-content',
        get_template_directory_uri() . '/assets/js/content.js',
        array('dts-config', 'dts-core'),
-       $theme_ver,
+       filemtime(get_template_directory() . '/assets/js/content.js') ?: $theme_ver,
        true
    );
 
@@ -99,18 +102,18 @@ function dark_theme_simplicity_scripts() {
            'dts-single-post',
            get_template_directory_uri() . '/assets/js/pages/single-post.js',
            array('dts-config', 'dts-core'),
-           $theme_ver,
+           filemtime(get_template_directory() . '/assets/js/pages/single-post.js') ?: $theme_ver,
            true
        );
    }
-  
+
    // Editor customizations (only in admin/editor)
    if (is_admin()) {
        wp_enqueue_script(
            'dark-theme-editor-customizations',
            get_template_directory_uri() . '/assets/js/editor-customizations.js',
            array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
-           $theme_ver,
+           filemtime(get_template_directory() . '/assets/js/editor-customizations.js') ?: $theme_ver,
            true
        );
    }

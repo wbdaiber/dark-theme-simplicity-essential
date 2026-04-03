@@ -18,7 +18,7 @@ $logo_title = get_theme_mod( 'dark_theme_simplicity_logo_bar_title', 'Trusted By
 
 <!-- Logo Bar Section -->
 <section class="py-12 px-4 sm:px-6 lg:px-8 bg-dark-200 logo-bar-section" aria-label="<?php echo esc_attr( $logo_title ); ?>">
-    <div class="container mx-auto max-w-5xl">
+    <div class="container">
         <p class="text-center text-sm font-medium text-light-100/50 uppercase tracking-widest mb-8">
             <?php echo esc_html( $logo_title ); ?>
         </p>

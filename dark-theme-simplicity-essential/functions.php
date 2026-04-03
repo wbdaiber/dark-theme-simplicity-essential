@@ -193,7 +193,7 @@ class Dark_Theme_Simplicity_Walker_Simple_Menu extends Walker_Nav_Menu {
 		$attributes = ! empty($item->attr_title) ? ' title="'  . esc_attr($item->attr_title) .'"' : '';
 		$attributes .= ! empty($item->target)    ? ' target="' . esc_attr($item->target     ) .'"' : '';
 		$attributes .= ! empty($item->xfn)       ? ' rel="'    . esc_attr($item->xfn        ) .'"' : '';
-		$attributes .= ! empty($item->url)        ? ' href="'   . esc_attr($item->url        ) .'"' : '';
+		$attributes .= ! empty($item->url)        ? ' href="'   . esc_url($item->url         ) .'"' : '';
 
 		$link_classes = 'text-light-100/70 hover:text-blue-400 transition-colors duration-200';
 		$rel_attr = $this->extra_rel ? ' rel="' . esc_attr($this->extra_rel) . '"' : '';
@@ -651,6 +651,26 @@ function dts_remove_jquery_migrate( $scripts ) {
     }
 }
 
+// === DISABLE COMMENTS SITE-WIDE ===
+add_action('admin_init', function () {
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+});
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+add_filter('comments_array', '__return_empty_array', 10, 2);
+add_action('admin_menu', function () {
+    remove_menu_page('edit-comments.php');
+});
+add_action('wp_before_admin_bar_render', function () {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+});
+
 // === CONSOLIDATED BLOG JAVASCRIPT ===
 // Replace multiple blog JS files with single consolidated file
 add_action( 'wp_enqueue_scripts', 'dts_enqueue_consolidated_blog_scripts', 25 );
@@ -664,7 +684,7 @@ function dts_enqueue_consolidated_blog_scripts() {
         'blog-consolidated',
         get_template_directory_uri() . '/assets/js/blog-consolidated.js',
         array( 'dts-core' ), // Uses DTSCore utilities
-        '1.3.0',
+        filemtime(get_template_directory() . '/assets/js/blog-consolidated.js') ?: '1.3.0',
         true
     );
     

@@ -6,7 +6,7 @@
  */
 ?>
 
-<nav class="breadcrumbs-nav flex items-center gap-2 text-sm mb-2 text-light-100/70" aria-label="<?php esc_attr_e( 'Breadcrumb navigation', 'dark-theme-simplicity' ); ?>" role="navigation">
+<nav class="breadcrumbs-nav flex items-center gap-2 text-sm mb-5 text-light-100/70" aria-label="<?php esc_attr_e( 'Breadcrumb navigation', 'dark-theme-simplicity' ); ?>" role="navigation">
     <ol class="breadcrumbs-list flex items-center gap-2" itemscope itemtype="https://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" 

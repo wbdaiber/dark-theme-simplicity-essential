@@ -1,37 +1,31 @@
 <?php get_header(); ?>
 
-<?php 
-// Check if sidebar widgets should be shown
-$show_sidebar_widgets = get_post_meta(get_the_ID(), '_show_sidebar_widgets', true);
-if ($show_sidebar_widgets === '') {
-    $show_sidebar_widgets = get_theme_mod('dark_theme_simplicity_default_show_widgets', 'yes');
-} else {
-    // Convert from '1'/'0' format to 'yes'/'no' format
-    $show_sidebar_widgets = ($show_sidebar_widgets === '1') ? 'yes' : 'no';
-}
+<div class="container py-16">
+    <?php while (have_posts()) : the_post();
+        // Check if sidebar widgets should be shown
+        $show_sidebar_widgets = get_post_meta(get_the_ID(), '_show_sidebar_widgets', true);
+        if ($show_sidebar_widgets === '') {
+            $show_sidebar_widgets = get_theme_mod('dark_theme_simplicity_default_show_widgets', 'yes');
+        } else {
+            $show_sidebar_widgets = ($show_sidebar_widgets === '1') ? 'yes' : 'no';
+        }
 
-// Determine if we should show sidebar
-$show_sidebar = ($show_sidebar_widgets === 'yes' && (is_active_sidebar('sidebar-page') || is_active_sidebar('sidebar-1')));
-$content_class = $show_sidebar ? 'flex-1' : 'max-w-4xl mx-auto';
+        $show_sidebar = ($show_sidebar_widgets === 'yes' && (is_active_sidebar('sidebar-page') || is_active_sidebar('sidebar-1')));
+        $content_class = $show_sidebar ? 'flex-1' : 'max-w-4xl mx-auto';
 
-// Check if table of contents should be shown
-$show_toc = get_post_meta(get_the_ID(), '_show_table_of_contents', true);
-if ($show_toc === '') {
-    $show_toc = '1'; // Default to showing TOC
-}
+        $show_toc = get_post_meta(get_the_ID(), '_show_table_of_contents', true);
+        if ($show_toc === '') {
+            $show_toc = '1';
+        }
 
-// Check if share buttons should be shown
-$show_share = get_post_meta(get_the_ID(), '_show_share_buttons', true);
-if ($show_share === '') {
-    $show_share = '1'; // Default to showing share buttons
-}
-?>
-
-<div class="container mx-auto py-16">
+        $show_share = get_post_meta(get_the_ID(), '_show_share_buttons', true);
+        if ($show_share === '') {
+            $show_share = '1';
+        }
+    ?>
     <div class="<?php echo $show_sidebar ? 'flex flex-col md:flex-row gap-8' : ''; ?>">
         <!-- Main content column -->
         <div class="<?php echo esc_attr($content_class); ?>">
-            <?php while (have_posts()) : the_post(); ?>
                 <article <?php post_class('page-content bg-dark-300 p-6 rounded-lg'); ?>>
                     <header class="entry-header mb-8">
                         <!-- Add breadcrumbs -->
@@ -147,7 +141,6 @@ if ($show_share === '') {
                     endif;
                     ?>
                 </article>
-            <?php endwhile; ?>
         </div>
         
         <!-- Sidebar column - only show if widgets are enabled -->
@@ -168,6 +161,7 @@ if ($show_share === '') {
             </div>
         <?php endif; ?>
     </div>
+    <?php endwhile; ?>
 </div>
 
 <?php get_footer(); ?> 

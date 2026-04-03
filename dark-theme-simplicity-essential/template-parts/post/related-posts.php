@@ -9,8 +9,8 @@ $post_helper = new DTS_Post_Helper( get_the_ID() );
 $related_query = $post_helper->get_related_posts();
 ?>
 
-<section class="bg-dark-200 py-8 md:py-16 mt-8 md:mt-16 mobile-section border-t border-white/10">
-	<div class="container mx-auto">
+<section class="bg-dark-300 py-8 md:py-16 mt-8 md:mt-16 mobile-section border-t border-white/10">
+	<div class="container">
     	<h2 class="text-xl md:text-3xl font-medium mb-6 md:mb-8 text-center text-white px-4">
         	<?php echo esc_html( apply_filters( 'dts_related_posts_title', __( 'Related Articles', 'dark-theme-simplicity' ) ) ); ?>
     	</h2>

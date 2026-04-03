@@ -15,7 +15,7 @@ $contact_linkedin = get_theme_mod( 'dark_theme_simplicity_contact_linkedin', 'li
 <section class="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-dark-200 contact-section mt-8 md:mt-16 relative mobile-section">
     <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0"></div>
     
-    <div class="container mx-auto max-w-5xl">
+    <div class="container">
         <div class="text-center mb-8 md:mb-12">
             <span class="inline-block px-4 py-2 bg-blue-300/10 section-label rounded-full text-sm mb-4 border border-blue-300/20">
                 <?php esc_html_e( 'Available for Hire', 'dark-theme-simplicity' ); ?>
@@ -31,7 +31,7 @@ $contact_linkedin = get_theme_mod( 'dark_theme_simplicity_contact_linkedin', 'li
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
             <!-- Email Card -->
             <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" 
-               class="glass-card p-4 md:p-6 rounded-xl">
+               class="glass-card p-4 md:p-6">
                 <div class="flex items-center space-x-4">
                     <div class="bg-blue-300/20 p-3 rounded-lg">
                         <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -47,7 +47,7 @@ $contact_linkedin = get_theme_mod( 'dark_theme_simplicity_contact_linkedin', 'li
             <a href="<?php echo esc_url( strpos( $contact_linkedin, 'http' ) === 0 ? $contact_linkedin : 'https://' . $contact_linkedin ); ?>"
                target="_blank"
                rel="noopener noreferrer"
-               class="glass-card p-4 md:p-6 rounded-xl">
+               class="glass-card p-4 md:p-6">
                 <div class="flex items-center space-x-4">
                     <div class="bg-blue-300/20 p-3 rounded-lg">
                         <svg class="w-6 h-6 contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

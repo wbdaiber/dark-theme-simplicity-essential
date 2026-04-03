@@ -3,7 +3,7 @@
 <main id="content" class="site-main bg-dark-200">
     <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-dark-300">
-        <div class="container mx-auto">
+        <div class="container">
             <div class="max-w-5xl">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white reveal-text">
                     <?php 
@@ -45,7 +45,7 @@
 
     <!-- All Articles Section -->
     <section class="py-16">
-        <div class="container mx-auto">
+        <div class="container">
             <div class="mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">All Articles</h2>
             </div>

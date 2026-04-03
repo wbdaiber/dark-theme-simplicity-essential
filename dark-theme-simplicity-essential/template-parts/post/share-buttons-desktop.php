@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="p-1.5 bg-dark-400 rounded-lg">
+<div class="p-1.5 rounded-lg">
     <div class="share-heading share-label text-xs font-medium mb-1 px-1" role="heading" aria-level="3">
         <?php esc_html_e( 'Share', 'dark-theme-simplicity' ); ?>
     </div>

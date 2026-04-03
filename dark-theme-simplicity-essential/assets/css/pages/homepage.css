@@ -1,5 +1,11 @@
 /* Homepage Specific Styles */
 
+/* Match site-main bg to section backgrounds so margins don't create visible seams.
+   Hero gradient fades to dark-200 (#121214); most sections use bg-dark-200. */
+.home .site-main {
+  background-color: #121214;
+}
+
 /* Lazy Loading Animation */
 .dts-animate-in {
     opacity: 1 !important;
@@ -76,102 +82,9 @@
     animation-delay: 0.6s;
 }
 
-/* Unified Section Card Styles */
-.section-card {
-    background-color: var(--dark-card, #1e1e24);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-    will-change: transform, border-color, box-shadow;
-}
-
-.section-card:hover {
-    border-color: var(--primary-blue);
-    border-width: 2px;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px var(--primary-blue-shadow, rgba(59, 130, 246, 0.2));
-}
-
-/* Service Card Specific */
-.section-card--service {
-    padding: 2rem;
-}
-
-.section-card--service .service-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-blue);
-}
-
-/* Benefits Card Specific */
-.section-card--benefit {
-    padding: 2rem;
-}
-
-/* Approach Card Specific */
-.section-card--approach {
-    padding: 2rem;
-    position: relative;
-}
-
-.section-card--approach .step-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    opacity: 0.2;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-}
-
-/* Homepage Section Typography */
-.homepage-section h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-}
-
-.homepage-section p {
-    color: var(--text-primary);
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    opacity: 0.8;
-}
-
-/* Social Menu Styles */
-.social-menu-item {
-    margin-bottom: 0.75rem;
-}
-
-.social-menu-item:last-child {
-    margin-bottom: 0;
-}
-
-.social-menu-item a {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.2s ease;
-}
-
-.social-menu-item a:hover {
-    color: var(--primary-blue);
-}
-
-.social-menu-item svg {
-    flex-shrink: 0;
-}
-
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .homepage-section p {
-        font-size: 1.25rem;
-    }
+/* Service card Customizer background override */
+.services-section .glass-card {
+    background: var(--service-card-bg, rgba(30, 30, 36, 0.7));
 }
 
 /* Reduced motion support */
@@ -179,10 +92,6 @@
     .animate-fade-in-up {
         animation: none;
         opacity: 1;
-    }
-
-    .section-card {
-        transition: none;
     }
 }
 

@@ -11,7 +11,7 @@
                 <?php esc_html_e('Page Not Found', 'dark-theme-simplicity'); ?>
             </h2>
             
-            <p class="text-gray-600 dark:text-gray-400 mb-8">
+            <p class="text-light-100/70 mb-8">
                 <?php esc_html_e('The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'dark-theme-simplicity'); ?>
             </p>
 

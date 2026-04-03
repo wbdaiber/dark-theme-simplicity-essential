@@ -1,11 +1,18 @@
 /**
  * Reset CSS — Dark Theme Simplicity
  * Element-level resets and base typography
- * Version: 1.0.0
+ * Version: 1.1.0
  *
  * RULE: Only element selectors and accessibility classes.
  *       No component classes. No utilities.
  */
+
+/* This declaration controls cascade priority for the entire theme.
+   If you add a new @layer anywhere, update this list. Order = priority (left = lowest).
+   Unlayered CSS (components, header, page CSS) always beats any layer. */
+@layer base, utilities;
+
+@layer base {
 
 /* ========== Box Model Reset ========== */
 *, *::before, *::after {
@@ -101,6 +108,20 @@ a:focus {
 ul, ol {
   margin: 0 0 var(--spacing-lg);
   padding-left: var(--spacing-xl);
+}
+
+/* Structural lists (nav, footer, sidebar, breadcrumbs, TOC) should not show markers.
+   Blog content lists keep default markers via .entry-content specificity. */
+nav ul, nav ol,
+footer ul, footer ol,
+.breadcrumbs ol,
+.widget-area ul, .widget-area ol,
+.toc-container ul, .toc-container ol,
+.toc-desktop ul, .toc-desktop ol,
+.toc-mobile ul, .toc-mobile ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 li {
@@ -271,3 +292,5 @@ img {
     text-decoration: underline;
   }
 }
+
+} /* end @layer base */
