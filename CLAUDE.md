@@ -40,7 +40,7 @@ Nearly all frontend content (hero text, service cards, benefits, approach steps,
 ### Key Classes
 
 - **`DTS_Post_Helper`** (`inc/class-dts-post-helper.php`) — Manages post display settings via post meta (`_show_sidebar_widgets`, `_show_table_of_contents`, `_show_share_buttons`), extracts H2 headings for TOC
-- **Walker classes** (`functions.php`) — `Dark_Theme_Simplicity_Walker_Nav` (parameterized, used for desktop with `header-nav-link` and mobile with `mobile-nav-link`) and `Dark_Theme_Simplicity_Walker_Simple_Menu` (footer/social menus with Tailwind classes)
+- **Walker classes** (`functions.php`) — `Dark_Theme_Simplicity_Walker_Nav` (parameterized, used for desktop with `header-nav-link` and mobile with `mobile-nav-link`), `Dark_Theme_Simplicity_Walker_Simple_Menu` (footer navigation menu with Tailwind classes), and `Dark_Theme_Simplicity_Walker_Social_Icons` (footer social menu — detects platform from URL and renders SVG icon blocks)
 
 ### Critical CSS System
 
@@ -83,6 +83,15 @@ Inline critical CSS (`<style id="critical-css">`) is injected in `<head>` before
 
 **Component overreach signal:** If you need inline styles to override a component property with per-instance values, the component shouldn't own that property. Refactor the component to release it (e.g., `.container` uses `padding-left`/`padding-right` instead of shorthand `padding` so templates can use `py-*` utilities for vertical spacing). Don't accumulate inline style overrides across templates.
 
+#### Inline `<style>`/`<script>` in PHP templates
+
+Some CSS and JS is defined inline within PHP templates, not in standalone files. When auditing class usage or refactoring CSS/JS, grep the PHP templates directly — checking only `.css` and `.js` files will miss these definitions.
+
+Known inline definitions:
+- **`reveal-text`** — Scroll-triggered fade-up animation (CSS + IntersectionObserver JS). Duplicated identically in `index.php`, `archive.php`, and `page-templates/tools-template.php`. If changing the animation, update all 3 files.
+- **`blog-hero-section`**, **`blog-hero-description`** — Inline `<style>` in `index.php`
+- **`tools-hero-section`**, **`tools-hero-description`** — Inline `<style>` in `page-templates/tools-template.php`
+
 #### Tailwind Utility Verification (REQUIRED)
 
 This theme does NOT use Tailwind JIT compilation. All utility classes — including responsive variants (`md:`, `lg:`), state variants (`hover:`, `focus:`), and arbitrary values — must exist in either `style.css` or `assets/css/utilities-extra.css` to have any effect.
@@ -104,14 +113,14 @@ Common gotcha: `hidden md:block` requires `md:block` to be explicitly defined. A
 | `assets/css/utilities-extra.css` | Additive sidecar loaded after style.css. Contains v3-compatible gradient class overrides (v4's gradient variable chain doesn't work), `bg-dark-400`, gradient variable initialization, and hand-written utility classes not in the v4 compile. |
 | `assets/css/components.css` | Layout containers (.container, .content-container, .section + responsive scaling), reusable UI components with co-located responsive variants: .site/.site-main, .entry-content, .page-header, .hero-container, .sidebar-container, .card/.glass-card, .btn variants, .form-*, .table, .dropdown--top/bottom/left/right (positioning), .breadcrumbs, .badge, .alert, .widget, interactive feedback (.dts-copy-feedback, .toc-link.active), focus/accessibility enhancements |
 | `assets/css/header.css` | .site-header, .site-logo, .site-title, .desktop-nav, .nav-menu, .header-nav-link, .mobile-menu*, .hamburger-*, navigation breakpoints |
-| `assets/css/conversion-cta.css` | Nav CTA button, sidebar CTA card, mobile CTA |
+| `assets/css/conversion-cta.css` | Nav CTA button, sidebar CTA card (blue→purple gradient, purple border), mobile CTA, related posts CTA card |
 
 #### Page-specific CSS (loaded conditionally)
 | File | Owns |
 |------|------|
 | `assets/css/pages/homepage.css` | Homepage animations, service card Customizer background override (`.services-section .glass-card`), hero CTA buttons (.hero-headline, .hero-cta-primary/secondary), logo bar (.logo-bar-section, .logo-bar-logo with brightness(0) invert(1) filter), reduced-motion support |
-| `assets/css/pages/single-post.css` | Post typography overrides (`.single .entry-content`), single-post hero overrides (`.single .hero-content`, `.single .page-header`), related posts, scroll CTA, sidebar responsive (`.post-sidebar` visibility), widget overflow |
-| `assets/css/pages/archive.css` | Blog listing grid, post cards, pagination, filters, featured/sticky posts, loading skeletons |
+| `assets/css/pages/single-post.css` | Post typography overrides (`.single .entry-content`), single-post hero overrides (`.single .hero-content`, `.single .page-header`), article body bg override, related posts blue accent borders, blockquote/code block purple accents, scroll CTA, sidebar responsive (`.post-sidebar` visibility), widget overflow |
+| `assets/css/pages/archive.css` | Blog listing grid, post cards, pagination, filters, featured/sticky posts, loading skeletons, archive hero blue-to-purple gradient wash |
 
 #### Critical CSS (inlined in `<head>`, auto-generated)
 | File | Purpose |
@@ -121,6 +130,21 @@ Common gotcha: `hidden md:block` requires `md:block` to be explicitly defined. A
 | `assets/css/critical/archive.css` | Above-fold: tokens, reset, header skeleton, grid skeleton |
 
 Regenerate critical CSS after any above-fold CSS change: `./scripts/generate-critical.sh`
+
+#### Color differentiation (added 2026-04-03, subject to change)
+
+The single post and archive pages use a multi-tone background strategy to create visual section breaks. Purple (`#8b5cf6` / `rgba(139, 92, 246, ...)`) is a secondary accent alongside the primary blue (`--accent-blue`).
+
+| Section | Background | File |
+|---|---|---|
+| Single post hero (`.single .page-header`) | Blue gradient wash (6% opacity) → `--surface-300` | `single-post.css` |
+| Single post article (`.single .post-container`) | `#0c0c0e` (matches body) | `single-post.css` |
+| Related posts section | `bg-dark-300` + blue top/bottom accent borders | `single-post.css` |
+| Author card | `bg-dark-300` + `border-blue-300/30` | `author-card.php` (Tailwind class) |
+| Sidebar CTA | Blue→purple gradient bg + purple border | `conversion-cta.css` |
+| Blockquotes | Purple left border + blue→purple gradient bg (10-12%) | `single-post.css` |
+| Code blocks (`pre`) | `--surface-400` + purple border (15%) | `single-post.css` |
+| Archive hero (`.blog-hero-section`) | Blue→purple gradient wash (10-12%) via `background-blend-mode: screen` | `archive.css` |
 
 #### `style.css` regeneration pipeline
 
@@ -166,7 +190,6 @@ Comments are disabled site-wide via `functions.php`. The `comments_template()` c
 - `assets/css/print.css` — Print styles (isolated by `@media print`)
 - `assets/css/customizer.css`, `customizer-repeater.css`, `customizer-fixes.css` — Admin customizer UI
 - `assets/css/editor-style.css` — Block editor styles
-- `assets/css/header.css`, `assets/css/conversion-cta.css` — Owned by other systems, stable
 
 ### Performance Optimizations
 

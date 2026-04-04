@@ -9,24 +9,24 @@ $about_image = get_theme_mod( 'dark_theme_simplicity_about_image', get_template_
 ?>
 
 <section class="max-w-6xl mx-auto px-4 mt-8 md:mt-12">
-    <div class="bg-dark-300 border border-white/10 rounded-xl overflow-hidden">
+    <div class="bg-dark-300 border border-blue-300/30 rounded-xl overflow-hidden">
         <div class="flex flex-row items-center p-4 md:p-6 gap-4 md:gap-8">
 
-            <!-- Image column: circle avatar on mobile, rectangle on desktop -->
+            <!-- Image column: circle avatar on mobile, contained card on desktop -->
             <div class="shrink-0 w-16 md:w-1/3">
                 <div class="author-card-image rounded-full overflow-hidden">
                     <img src="<?php echo esc_url( $about_image ); ?>"
                          alt="Brad Daiber"
-                         class="w-16 h-16 md:w-full md:h-auto object-cover max-h-[250px]"
+                         class="author-card-img"
                          loading="lazy">
                 </div>
             </div>
 
             <!-- Text column -->
             <div class="flex-1 flex flex-col justify-center">
-                <h3 class="text-base md:text-xl font-bold text-white mb-1">
+                <div class="text-base md:text-xl font-bold text-white mb-1">
                     <?php esc_html_e( 'About Me', 'dark-theme-simplicity' ); ?>
-                </h3>
+                </div>
                 <p class="text-xs md:text-sm text-blue-300 font-medium mb-2 md:mb-3">
                     <?php echo esc_html( get_theme_mod( 'dark_theme_simplicity_author_role', 'Content Director & Growth Strategist' ) ); ?>
                 </p>

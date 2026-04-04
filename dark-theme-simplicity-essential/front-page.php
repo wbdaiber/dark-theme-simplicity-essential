@@ -47,9 +47,6 @@ get_header();
     // Services Section — what you do
     include(get_template_directory() . '/template-parts/homepage/section-services.php');
 
-    // Logo Bar — renders only when logos are configured
-    include(get_template_directory() . '/template-parts/homepage/section-logos.php');
-
     // Featured In — publication logos, renders only when configured
     include(get_template_directory() . '/template-parts/homepage/section-featured.php');
 

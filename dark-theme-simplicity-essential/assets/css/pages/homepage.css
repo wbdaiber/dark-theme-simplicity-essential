@@ -6,11 +6,16 @@
   background-color: #121214;
 }
 
-/* Lazy Loading Animation */
-.dts-animate-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Lazy Loading Animation — hidden default + revealed state via specificity */
+[data-lazy-load] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-lazy-load].dts-animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Hero Background Loading */
@@ -192,12 +197,38 @@
 }
 
 /* ============================================
-   LOGO BAR (absorbed from logo-bar.css)
+   LOGO BAR — infinite marquee scroll
    ============================================ */
 
 .logo-bar-section {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-marquee {
+    overflow: hidden;
+    /* Fade edges so logos don't appear/disappear abruptly */
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.logo-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 45s linear infinite;
+}
+
+.logo-marquee-set {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-right: 3rem; /* matches gap so spacing is even at the seam */
+}
+
+.logo-bar-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
 }
 
 .logo-bar-logo {
@@ -213,6 +244,36 @@
     filter: none;
 }
 
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Pause on hover for usability */
+.logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+}
+
 @media (min-width: 768px) {
     .logo-bar-logo { height: 2.5rem; }
+    .logo-marquee-set { gap: 4rem; padding-right: 4rem; }
+}
+
+/* Respect reduced motion: show static layout instead */
+@media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+        animation: none;
+    }
+    .logo-marquee {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+    .logo-marquee-set {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    /* Hide the duplicate set in static mode */
+    .logo-marquee-set[aria-hidden="true"] {
+        display: none;
+    }
 }

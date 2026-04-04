@@ -101,8 +101,8 @@ CSSEOF
 # ============================================================
 # Single Post critical CSS
 # ============================================================
-SINGLE_STRUCTURE='.site-main{flex:1;width:100%;background-color:var(--dark-bg)}.entry-content{width:100%;max-width:var(--content-default);margin:0 auto}'
-SINGLE_HERO='.page-header{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:auto;padding:var(--spacing-lg) var(--spacing-md);background-color:var(--surface-300);position:relative;overflow:hidden}.hero-container{width:100%;margin-bottom:var(--spacing-xl);position:relative}'
+SINGLE_STRUCTURE='body.single{background-color:#0c0c0e}.single .site-main{flex:1;width:100%;padding-top:0;padding-bottom:0;background-color:#0c0c0e}.entry-content{width:100%;max-width:var(--content-default);margin:0 auto}.single .post-container{background-color:#0c0c0e}'
+SINGLE_HERO='.page-header{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:auto;padding:var(--spacing-lg) var(--spacing-md);background-color:var(--surface-300);position:relative;overflow:hidden}.single .page-header{background:linear-gradient(180deg,rgba(59,130,246,0.06) 0%,var(--surface-300) 100%)}.hero-container{width:100%;margin-bottom:var(--spacing-xl);position:relative}.single .hero-container{margin-bottom:0}'
 SINGLE_SIDEBAR='.sidebar-container{position:sticky;top:100px;max-height:calc(100vh - 120px);overflow-y:auto}.post-sidebar{display:none}@media(min-width:1024px){.post-sidebar{display:block!important}}'
 SINGLE_RESPONSIVE='@media(min-width:1024px){.entry-content{font-size:1.125rem}}'
 

@@ -14,16 +14,16 @@ if ( strpos( $linkedin_url, 'http' ) !== 0 ) {
 }
 ?>
 
-<div class="related-post-card related-cta-card">
+<div class="related-post-card related-cta-card hidden lg:block">
     <div class="related-cta-inner">
         <div class="related-cta-accent"></div>
         <div class="related-cta-content">
             <span class="related-cta-label">
                 <?php esc_html_e( "Let's Connect", 'dark-theme-simplicity-3' ); ?>
             </span>
-            <h3 class="related-cta-title">
+            <div class="related-cta-title">
                 <?php esc_html_e( 'Work With Me', 'dark-theme-simplicity-3' ); ?>
-            </h3>
+            </div>
             <p class="related-cta-desc">
                 <?php esc_html_e( 'Content strategist and web developer helping B2B companies drive measurable growth.', 'dark-theme-simplicity-3' ); ?>
             </p>

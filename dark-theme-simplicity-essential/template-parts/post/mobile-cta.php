@@ -18,9 +18,9 @@ if ( strpos( $linkedin_url, 'http' ) !== 0 ) {
         <span class="inline-block px-3 py-1 bg-blue-300/10 rounded-full text-xs font-medium text-blue-300 border border-blue-300/20 mb-3">
             <?php esc_html_e( 'Available for hire', 'dark-theme-simplicity' ); ?>
         </span>
-        <h3 class="text-xl font-bold text-white mb-2">
+        <div class="text-xl font-bold text-white mb-2">
             <?php esc_html_e( 'Work With Me', 'dark-theme-simplicity' ); ?>
-        </h3>
+        </div>
         <p class="text-sm text-light-100/70 mb-4 max-w-md mx-auto">
             <?php esc_html_e( 'Looking for a content marketing leader who drives revenue? Let\'s talk.', 'dark-theme-simplicity' ); ?>
         </p>

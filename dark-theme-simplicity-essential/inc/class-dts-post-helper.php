@@ -92,27 +92,27 @@ class DTS_Post_Helper {
         
         // Responsive classes
         $responsive_class = '';
-        $content_width_class = 'md:w-4/5 lg:w-5/6 xl:w-7/8';
-        $sidebar_width_class = 'md:w-1/5 lg:w-1/6 xl:w-1/8';
-        
+        $content_width_class = 'md:w-4/5 lg:w-3/4';
+        $sidebar_width_class = 'md:w-1/5 lg:w-1/4';
+
         switch ( $hidden_elements ) {
             case 3:
                 $responsive_class = 'full-content';
-                $content_width_class = 'md:w-full lg:w-full xl:w-full';
+                $content_width_class = 'md:w-full lg:w-full';
                 break;
             case 2:
                 $responsive_class = 'wide-content';
-                $content_width_class = 'md:w-11/12 lg:w-11/12 xl:w-11/12';
+                $content_width_class = 'md:w-11/12 lg:w-11/12';
                 break;
             case 1:
                 $responsive_class = 'wider-content';
-                $content_width_class = 'md:w-4/5 lg:w-5/6 xl:w-7/8';
+                $content_width_class = 'md:w-4/5 lg:w-3/4';
                 break;
         }
-        
-        // Adjust sidebar width if needed
+
+        // Adjust sidebar width if needed — still use 1/4 at lg+ for CTA readability
         if ( $settings['show_toc'] !== 'yes' && $settings['show_share'] !== 'yes' ) {
-            $sidebar_width_class = 'md:w-1/6 lg:w-1/7 xl:w-1/9';
+            $sidebar_width_class = 'md:w-1/6 lg:w-1/4';
         }
         
         // Centered layout

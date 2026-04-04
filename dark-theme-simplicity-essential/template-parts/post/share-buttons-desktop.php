@@ -7,10 +7,7 @@
 ?>
 
 <div class="p-1.5 rounded-lg">
-    <div class="share-heading share-label text-xs font-medium mb-1 px-1" role="heading" aria-level="3">
-        <?php esc_html_e( 'Share', 'dark-theme-simplicity' ); ?>
-    </div>
-    <div class="flex flex-col gap-1">
+<div class="flex flex-col gap-1">
         <!-- Share Dropdown -->
         <div class="relative w-full" id="sidebar-share-container">
             <button class="flex items-center gap-2 bg-dark-300/80 hover:bg-dark-300 border border-white/5 rounded-lg px-2 py-1 text-xs text-white transition-all w-full" id="sidebar-share-btn" aria-expanded="false" aria-controls="sidebar-share-dropdown">
@@ -25,7 +22,7 @@
             </button>
             
             <!-- Desktop Share Dropdown -->
-            <div class="hidden absolute top-full mt-2 right-0 bg-dark-400 rounded-lg shadow-2xl py-2 min-w-[180px] z-[9999] max-h-[400px] overflow-y-auto desktop-share-dropdown" id="sidebar-share-dropdown" role="menu" aria-labelledby="sidebar-share-btn">
+            <div class="hidden absolute top-full mt-2 right-0 rounded-lg shadow-2xl py-2 z-[9999] overflow-y-auto desktop-share-dropdown" id="sidebar-share-dropdown" role="menu" aria-labelledby="sidebar-share-btn" style="min-width: 180px; max-height: 400px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.18) 100%), #0c0c0e; border: 1px solid rgba(139, 92, 246, 0.25);">
                 <div class="flex flex-col">
                     <!-- Facebook Share -->
                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
@@ -66,7 +63,7 @@
                     <!-- Copy Link Option -->
                     <button onclick="copyToClipboard('<?php echo esc_js( get_permalink() ); ?>')"
                             aria-label="Copy link to clipboard"
-                            class="flex items-center gap-2 px-3 py-2 hover:bg-dark-300/80 text-white text-xs transition-colors w-full text-left">
+                            class="flex items-center gap-2 px-3 py-2 bg-transparent hover:bg-dark-300/80 text-white text-xs transition-colors w-full text-left">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-300 flex-shrink-0">
                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>

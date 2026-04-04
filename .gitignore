@@ -3,3 +3,17 @@
 .claude/
 node_modules/
 dark-theme-simplicity-essential/tailwindcss
+
+# Working docs (except CLAUDE.md which is checked in)
+audit-report.md
+claude-code-audit-prompt.md
+tailwind-v4-migration-runbook.md
+wp-theme-audit.sh
+
+# Artifacts
+historical-clean-up/
+related-cta-card-artifact.html
+
+# Intermediate CSS backups from Tailwind v4 migration
+dark-theme-simplicity-essential/style-*.css
+dark-theme-simplicity-essential/v3-gap-fill.css

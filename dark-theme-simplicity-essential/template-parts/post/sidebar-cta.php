@@ -14,8 +14,7 @@ if (strpos($linkedin_url, 'http') !== 0) {
 ?>
 
 <div class="sidebar-cta-card">
-    <div class="sidebar-cta-label">Available for hire</div>
-    <h3 class="sidebar-cta-title">Work With Me</h3>
+    <div class="sidebar-cta-label">Work with Me</div>
     <p class="sidebar-cta-desc">Looking for a content marketing leader who drives revenue? Let's talk.</p>
     <a href="mailto:<?php echo esc_attr($contact_email); ?>" class="sidebar-cta-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

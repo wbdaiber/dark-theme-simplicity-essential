@@ -18,33 +18,43 @@ $featured_title = get_theme_mod( 'dark_theme_simplicity_featured_bar_title', 'Cl
 
 <!-- Featured In Section -->
 <section class="py-12 px-4 sm:px-6 lg:px-8 bg-dark-200 logo-bar-section" aria-label="<?php echo esc_attr( $featured_title ); ?>">
-    <div class="container">
-        <p class="text-center text-sm font-medium text-light-100/50 uppercase tracking-widest mb-8">
-            <?php echo esc_html( $featured_title ); ?>
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <?php foreach ( $featured_items as $logo ) :
-                if ( ! is_array( $logo ) || empty( $logo['url'] ) ) continue;
-                $alt  = isset( $logo['name'] ) ? $logo['name'] : 'Logo';
-                $link = isset( $logo['link'] ) ? $logo['link'] : '';
+    <p class="text-center text-sm font-medium text-light-100/50 uppercase tracking-widest mb-8">
+        <?php echo esc_html( $featured_title ); ?>
+    </p>
+    <div class="logo-marquee">
+        <div class="logo-marquee-track">
+            <?php
+            // Render logos twice for seamless infinite loop
+            for ( $i = 0; $i < 2; $i++ ) :
+                $is_duplicate = ( $i === 1 );
             ?>
-                <?php if ( $link ) : ?>
-                    <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="noopener noreferrer" class="logo-bar-item">
-                <?php else : ?>
-                    <div class="logo-bar-item">
-                <?php endif; ?>
+                <div class="logo-marquee-set" <?php if ( $is_duplicate ) echo 'aria-hidden="true"'; ?>>
+                    <?php foreach ( $featured_items as $logo ) :
+                        if ( ! is_array( $logo ) || empty( $logo['url'] ) ) continue;
+                        $alt  = isset( $logo['name'] ) ? $logo['name'] : 'Logo';
+                        $link = isset( $logo['link'] ) ? $logo['link'] : '';
+                    ?>
+                        <?php if ( $link ) : ?>
+                            <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="noopener noreferrer" class="logo-bar-item" <?php if ( $is_duplicate ) echo 'tabindex="-1"'; ?>>
+                        <?php else : ?>
+                            <div class="logo-bar-item">
+                        <?php endif; ?>
 
-                <img src="<?php echo esc_url( $logo['url'] ); ?>"
-                     alt="<?php echo esc_attr( $alt ); ?>"
-                     class="h-8 md:h-10 w-auto logo-bar-logo"
-                     loading="lazy">
+                        <img src="<?php echo esc_url( $logo['url'] ); ?>"
+                             alt="<?php echo esc_attr( $alt ); ?>"
+                             class="logo-bar-logo"
+                             loading="lazy"
+                             width="120"
+                             height="40">
 
-                <?php if ( $link ) : ?>
-                    </a>
-                <?php else : ?>
-                    </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                        <?php if ( $link ) : ?>
+                            </a>
+                        <?php else : ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endfor; ?>
         </div>
     </div>
 </section>

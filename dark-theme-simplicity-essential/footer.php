@@ -58,10 +58,10 @@
                     wp_nav_menu(array(
                         'theme_location' => 'social',
                         'container'      => false,
-                        'menu_class'     => 'flex flex-col space-y-3',
+                        'menu_class'     => 'flex gap-3',
                         'fallback_cb'    => false,
                         'depth'          => 1,
-                        'walker'         => new Dark_Theme_Simplicity_Walker_Simple_Menu('noopener noreferrer'),
+                        'walker'         => new Dark_Theme_Simplicity_Walker_Social_Icons(),
                     ));
                 } else {
                     // Fallback to default social links if no menu is set

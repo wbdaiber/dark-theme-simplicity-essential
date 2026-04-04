@@ -11,19 +11,19 @@ get_header();
     <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-dark-300 tools-hero-section">
         <div class="container">
-            <div class="max-w-5xl mx-auto text-center">
+            <div class="max-w-5xl text-left">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white reveal-text">
-                    <?php 
+                    <?php
                     // Use page title if set, otherwise fall back to customizer setting
                     echo esc_html(get_the_title()) ?: esc_html(get_theme_mod('dark_theme_simplicity_tools_hero_title', 'Tools & Resources'));
                     ?>
                 </h1>
                 <?php if (get_the_content()) : ?>
-                    <div class="text-xl md:text-2xl max-w-3xl mx-auto reveal-text tools-hero-description text-light-100/70">
+                    <div class="text-xl md:text-2xl max-w-3xl reveal-text tools-hero-description text-light-100/70">
                         <?php the_content(); ?>
                     </div>
                 <?php else: ?>
-                    <div class="text-xl md:text-2xl max-w-3xl mx-auto reveal-text tools-hero-description text-light-100/70">
+                    <div class="text-xl md:text-2xl max-w-3xl reveal-text tools-hero-description text-light-100/70">
                         <?php echo esc_html(get_theme_mod('dark_theme_simplicity_tools_hero_description', 'Explore our collection of tools designed to help you optimize your digital presence.')); ?>
                     </div>
                 <?php endif; ?>
@@ -42,7 +42,9 @@ get_header();
     <style>
         .tools-hero-section {
             position: relative;
-            background-color: #121214; /* Base dark color */
+            background-color: #121214;
+            background-image: linear-gradient(135deg, rgba(59, 130, 246, 0.10) 0%, rgba(139, 92, 246, 0.12) 100%);
+            background-blend-mode: screen;
             <?php if (!empty($tools_hero_bg)) : ?>
             background-image: url('<?php echo esc_url($tools_hero_bg); ?>');
             background-size: cover;
@@ -282,11 +284,6 @@ document.addEventListener('DOMContentLoaded', function() {
 .reveal-text.revealed {
     opacity: 1;
     transform: translateY(0);
-}
-
-.tools-hero-section {
-    position: relative;
-    background-color: #121214;
 }
 
 .line-clamp-2 {

@@ -1,5 +1,5 @@
 <!-- Benefits Section -->
-<section id="benefits" class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-300 mt-16 relative" data-lazy-load>
+<section id="benefits" class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-300 mt-16 relative">
     <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0"></div>
     <div class="container">
         <div class="text-center mb-16">
@@ -66,7 +66,7 @@
                     $delay_map = array( 1 => 'animation-delay-200', 2 => 'animation-delay-400', 3 => 'animation-delay-600' );
                     $delay_class = isset( $delay_map[ $index ] ) ? $delay_map[ $index ] : ( $index > 3 ? 'animation-delay-600' : '' );
                 ?>
-                    <div class="glass-card p-6 animate-fade-in-up <?php echo esc_attr($delay_class); ?>">
+                    <div class="glass-card p-6" data-lazy-load>
                         <h3 class="text-2xl font-bold mb-3 text-white"><?php echo esc_html($title); ?></h3>
                         <p class="text-xl text-light-100/70"><?php echo esc_html($description); ?></p>
                     </div>
@@ -97,7 +97,7 @@
                     $delay_map = array( 1 => 'animation-delay-200', 2 => 'animation-delay-400', 3 => 'animation-delay-600' );
                     $delay_class = isset( $delay_map[ $index ] ) ? $delay_map[ $index ] : ( $index > 3 ? 'animation-delay-600' : '' );
                 ?>
-                    <div class="glass-card p-6 animate-fade-in-up <?php echo esc_attr($delay_class); ?>">
+                    <div class="glass-card p-6" data-lazy-load>
                         <h3 class="text-2xl font-bold mb-3 text-white"><?php echo esc_html($item['title']); ?></h3>
                         <p class="text-xl text-light-100/70"><?php echo esc_html($item['description']); ?></p>
                     </div>

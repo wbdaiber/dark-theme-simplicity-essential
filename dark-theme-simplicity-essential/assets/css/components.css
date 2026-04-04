@@ -121,8 +121,8 @@
 /* Mobile content layout */
 @media (max-width: 768px) {
   .mobile-single-col {
-    grid-template-columns: 1fr !important;
-    flex-direction: column !important;
+    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   .entry-content { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
   .table-wrapper { border-radius: var(--radius-sm); }
@@ -227,7 +227,8 @@
   position: sticky;
   top: 100px;
   max-height: calc(100vh - 120px);
-  overflow-y: auto;
+  overflow-y: visible;
+  min-width: 240px;
 }
 
 /* ============================================
@@ -792,8 +793,23 @@
 /* ============================================
    AUTHOR CARD — responsive image treatment
    ============================================ */
+.author-card-img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  display: block;
+}
 @media (min-width: 768px) {
   .author-card-image {
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+  .author-card-img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
   }
 }

@@ -32,6 +32,7 @@
 
 /* === Layout & Sizing === */
 .col-span-full{grid-column:1/-1}
+.order-3{order:3}
 .h-18{height:4.5rem}
 .w-18{width:4.5rem}
 .max-h-\[400px\]{max-height:400px}
@@ -81,6 +82,7 @@
 .space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem*calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem*var(--tw-space-y-reverse))}
 
 /* === Hover states === */
+.hover\:bg-white\/10:hover{background-color:rgba(255,255,255,0.1)}
 .hover\:bg-dark-300\/30:hover{background-color:rgba(31,41,55,0.3)}
 .hover\:bg-dark-300\/50:hover{background-color:rgba(31,41,55,0.5)}
 .hover\:bg-dark-300\/80:hover{background-color:rgba(31,41,55,0.8)}
@@ -124,6 +126,7 @@
 
 /* === Responsive: lg (1024px) === */
 @media(min-width:1024px){
+.lg\:block{display:block}
 .lg\:hidden{display:none}
 .lg\:text-4xl{font-size:2.25rem;line-height:2.5rem}
 .lg\:w-1\/4{width:25%}

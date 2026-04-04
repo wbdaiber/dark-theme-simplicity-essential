@@ -1,5 +1,5 @@
 <!-- Services Section -->
-<section id="what-we-do" class="py-16 px-4 md:px-0 services-section" data-lazy-load role="region" aria-labelledby="services-heading">
+<section id="what-we-do" class="py-16 px-4 md:px-0 services-section" role="region" aria-labelledby="services-heading">
     <div class="container">
         <?php
         // Cache theme mod values to avoid redundant calls
@@ -74,7 +74,7 @@
                         $svg_icon = '<svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>';
                     }
                     ?>
-                    <div class="glass-card p-6 group animate-fade-in-up <?php echo esc_attr($delay_class); ?>" style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;" tabindex="0" role="article" aria-labelledby="service-title-<?php echo esc_attr($index); ?>">
+                    <div class="glass-card p-6 group" data-lazy-load style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;" tabindex="0" role="article" aria-labelledby="service-title-<?php echo esc_attr($index); ?>">
                         <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true" role="img" aria-label="<?php echo esc_attr($title); ?> service icon">
                             <?php echo $svg_icon; ?>
                         </div>
@@ -86,7 +86,7 @@
             } else {
                 // Fallback if no service items are defined
                 ?>
-                <div class="glass-card p-6 group animate-fade-in-up" style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
+                <div class="glass-card p-6 group" data-lazy-load style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -96,7 +96,7 @@
                     <h3 class="text-2xl font-bold mb-3 text-white">Strategic SEO</h3>
                     <p class="text-xl text-light-100/70">Boost your visibility with search engine optimization that drives organic traffic.</p>
                 </div>
-                <div class="glass-card p-6 group animate-fade-in-up animation-delay-200" style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
+                <div class="glass-card p-6 group" data-lazy-load style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -109,7 +109,7 @@
                     <h3 class="text-2xl font-bold mb-3 text-white">Content Creation</h3>
                     <p class="text-xl text-light-100/70">Engaging, on-brand content that resonates with your target audience.</p>
                 </div>
-                <div class="glass-card p-6 group animate-fade-in-up animation-delay-400" style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
+                <div class="glass-card p-6 group" data-lazy-load style="--service-card-bg: <?php echo esc_attr($service_bg_color); ?>;">
                     <div class="p-4 rounded-lg w-18 h-18 mb-6 flex items-center justify-center transition-all" aria-hidden="true">
                         <svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>

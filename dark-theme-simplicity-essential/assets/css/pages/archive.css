@@ -14,10 +14,16 @@
   opacity: var(--desc-opacity, 0.7);
 }
 
+/* Blue-to-purple gradient wash on archive hero */
+.blog-hero-section {
+  background-image: linear-gradient(135deg, rgba(59, 130, 246, 0.10) 0%, rgba(139, 92, 246, 0.12) 100%) !important;
+  background-blend-mode: screen;
+}
+
 .archive .site-main,
 .blog .site-main,
 .search .site-main {
-  padding: var(--spacing-xl) 0 var(--spacing-2xl);
+  padding: 0 0 var(--spacing-2xl);
   background-color: #121214;
 }
 
